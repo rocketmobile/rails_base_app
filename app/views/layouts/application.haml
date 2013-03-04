@@ -1,0 +1,16 @@
+%html
+  %head
+    %title RailsBaseApp
+    %meta{name: "HandheldFriendly", content: "True"}
+    %meta{name: "MobileOptimized", content: "320"}
+    %meta{name: "viewport", content: "width=device-width, target-densitydpi=160dpi, initial-scale=1.0"}
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+  %body
+    = render 'layouts/navigation'
+    .container
+      = render 'layouts/messages'
+      = yield
+      .row#footer
+    = render 'layouts/javascripts'
