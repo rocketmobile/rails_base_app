@@ -29,3 +29,4 @@ Failed tests will dump the html and a screenshot of the rendered page, at the ti
 ##TODO
 
 * Add sentry helpers
+* Add console eval debug stuff

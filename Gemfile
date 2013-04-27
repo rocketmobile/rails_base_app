@@ -53,6 +53,7 @@ end
 
 group :development do
   gem "better_errors"
+  gem "binding_of_caller"
   gem "mailcatcher",            "~> 0.5.10"
   gem "quiet_assets"
   gem "sextant"
