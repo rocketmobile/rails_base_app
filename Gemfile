@@ -4,7 +4,7 @@ HOST_OS = RbConfig::CONFIG["host_os"]
 source 'https://rubygems.org'
 
 ruby "1.9.3"
-gem "rails",                    "~> 3.2.12"
+gem "rails",                    "~> 3.2.13"
 
 gem 'asset_sync',               "~> 0.5.3"
 gem "aws-sdk",                  "~> 1.7.1"
@@ -38,8 +38,6 @@ gem "squeel",                   "~> 1.0.15"
 gem "thin",                     "~> 1.5.0"
 gem "will_paginate",            "~> 3.0.3"
 gem "httparty",                 "~> 0.10"
-
-
 
 # Gems used only for assets and not required
 # in production environments by default.
