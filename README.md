@@ -2,8 +2,8 @@
 
 ## Cloning
   * Fork the repo
-  * Replace 'rails_base_app' with 'your-app-name' in project directory
-  * Replace 'RailsBaseApp' with 'YourAppName' in project directory
+  * Replace all instances of  'rails_base_app' with 'your-app-name' in project directory
+  * Replace all instances of 'RailsBaseApp' with 'YourAppName' in project directory
   * Rename project directory to 'your-app-name'
 
 ## Getting Started
@@ -17,16 +17,15 @@
   * `bundle install`
   * `brew install postgresql` to install postgres
     * follow post-install output to run server on login and now
-  *  `createuser rails -s`
+  * `createuser rails -s`
   * `rake db:setup`
 
 ## Testing
 
-We use the `capybara-webkit` extension to enhance our JavaScript testing; this component depends on QT, which sadly isn't distributed in gem form. To install this dependency, run `brew install qt`.
+We recommend use the `capybara-webkit` extension to enhance our JavaScript testing; this component depends on QT, which sadly isn't distributed in gem form. To install this dependency, run `brew install qt`.
 
 Failed tests will dump the html and a screenshot of the rendered page, at the time of a failure, to /tmp/capybara. To debug certain failures, you can also utilize the `screenshot_and_open_image` helper.
 
 ##TODO
 
 * Add sentry helpers
-* Add console eval debug stuff

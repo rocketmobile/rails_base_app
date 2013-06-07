@@ -34,4 +34,9 @@ RailsBaseApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Enable auto evalution of unrecognized commands
+  # We explicitly enable this for easier debugging in the console (using `rails console --debug`)
+  # Default for this property is true for `Rails s --debug`, but false for `rails console --debug`
+  Debugger.settings[:autoeval] = true
 end
