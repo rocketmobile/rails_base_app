@@ -5,6 +5,13 @@
   * Replace all instances of  'rails_base_app' with 'your-app-name' in project directory
   * Replace all instances of 'RailsBaseApp' with 'YourAppName' in project directory
   * Rename project directory to 'your-app-name'
+  * Reconfigure `.git/config` to point to your repo (so you don't push back to the base app repo)
+
+```text
+  [remote "origin"]
+    url = git@github.com:<your-user-or-organization-name>/<your-repo-name>
+    fetch = +refs/heads/*:refs/remotes/origin/*
+```
 
 ## Getting Started
   Install the `homebrew` package manager on your system (if you don't already have it):
