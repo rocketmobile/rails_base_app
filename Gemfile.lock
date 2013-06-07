@@ -42,6 +42,7 @@ GEM
     better_errors (0.3.2)
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
+    binding_of_caller (0.6.8)
     bootstrap-sass (2.3.0.1)
       sass (~> 3.2)
     builder (3.0.4)
@@ -341,6 +342,7 @@ DEPENDENCIES
   awesome_print
   aws-sdk (~> 1.7.1)
   better_errors
+  binding_of_caller
   bootstrap-sass (~> 2.3.0.1)
   cache_digests (~> 0.2.0)
   cancan (~> 1.6.8)
