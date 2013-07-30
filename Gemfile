@@ -1,60 +1,46 @@
-require "rbconfig"
-HOST_OS = RbConfig::CONFIG["host_os"]
-
 source 'https://rubygems.org'
 
 ruby "1.9.3"
-gem "rails",                    "~> 3.2.13"
-
-gem 'asset_sync',               "~> 0.5.3"
-gem "aws-sdk",                  "~> 1.7.1"
-gem "cache_digests",            "~> 0.2.0"
-gem "cancan",                   "~> 1.6.8"
-gem "compass-rails",            "~> 1.0.3"
-gem "dalli",                    "~> 2.6.2"
-# gem "devise",                   "~> 2.1.0"
-# gem "devise-async",             "~> 0.5.1"
-gem "haml-rails",               "~> 0.3.4"
-gem "has_scope",                "~> 0.5.1"
-gem "hashie",                   "~> 1.2.0"
-gem "jquery-fileupload-rails",  "~> 0.4.0"
-gem "jquery-rails",             "~> 2.1.2"
-gem "newrelic_rpm",             "~> 3.5.7.59"
-gem "paperclip",                "~> 3.3.1"
-gem "pg",                       "~> 0.14.1"
-gem "pg_search",                "~> 0.5.7"
-gem "progressbar",              "~> 0.11.0"
-gem "rack-jsonp-middleware",    "~> 0.0.7", require: "rack/jsonp"
-gem "rack-rewrite",             "~> 1.3.3"
-gem "rack-timeout",             "~> 0.0.3"
-gem "redis",                    "~> 3.0.2"
-gem "rolify",                   "~> 3.2.0"
-gem "sentry-raven",             "~> 0.4.3"
-gem 'sinatra',                  "~> 1.3.0", require: nil
-gem "sidekiq",                  "~> 2.7.3"
-gem "sidekiq-failures",         "~> 0.1.0"
-gem "slim",                     "~> 1.3.6"
-gem "squeel",                   "~> 1.0.15"
+gem "rails",                    "~> 4.0.0"
 gem "thin",                     "~> 1.5.0"
-gem "will_paginate",            "~> 3.0.3"
-gem "httparty",                 "~> 0.10"
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem "sass-rails",             "~> 3.2.3"
-  gem "coffee-rails",           "~> 3.2.2"
-  # gem "zurb-foundation",        "~> 3.0.9"
-  gem "bootstrap-sass",         "~> 2.3.0.1"
-  gem "uglifier",               "~> 1.3.0"
-end
+gem 'asset_sync',               "~> 1.0.0"
+gem "dalli",                    "~> 2.6.4"
+gem "haml-rails",               github: 'indirect/haml-rails', ref: '6b7a5dead27957aff853b6c82b81fc13543c1aeb'
+gem "has_scope",                "~> 0.5.1"
+gem "hashie",                   "~> 2.0.5"
+gem "honeybadger",              "~> 1.7.0"
+gem "jquery-fileupload-rails",  "~> 0.4.1"
+gem "jquery-rails",             "~> 3.0.4"
+gem "newrelic_rpm",             "~> 3.6.6.147"
+gem "paperclip",                "~> 3.5.0"
+gem "pg",                       "~> 0.16.0"
+gem "progressbar",              "~> 0.20.0"
+gem "rack-rewrite",             "~> 1.3.3"
+gem "rack-timeout",             github: "kch/rack-timeout", tag: 'v0.1.0beta3'
+gem "squeel",                   github: "ernie/squeel", ref: '20501704e415caacb4a2b76bd6e39d93baba3188'
+gem "will_paginate",            github: "mislav/will_paginate", ref: '0da168851b9356f678106abd19055fc6e9a6df72'
+
+# Workers
+gem "httparty",                 "~> 0.11.0"
+gem "redis",                    "~> 3.0.4"
+gem "sidekiq",                  "~> 2.13.0"
+gem "sidekiq-failures",         "~> 0.2.1"
+gem "slim",                     "~> 2.0.0"
+gem "sinatra",                  ">= 1.3.0", require: nil
+
+# Assets (rails 4 obsoleted :assets grouping)
+gem "sass-rails",             "~> 4.0.0"
+gem "coffee-rails",           "~> 4.0.0"
+gem "modernizr-rails",        "~> 2.6.2.3"
+gem "uglifier",               "~> 2.1.2"
+gem "zurb-foundation",        "~> 4.3.1"
 
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "mailcatcher",            "~> 0.5.10"
+  gem "mailcatcher"
   gem "quiet_assets"
-  gem "sextant"
   gem "sqlite3"
 end
 
@@ -65,12 +51,12 @@ group :development, :test do
   gem "debugger"
   gem "email_spec",             ">= 1.2.1"
   gem "faker"
-  gem "factory_girl_rails",     ">= 3.3.0"
+  gem "factory_girl_rails",     ">= 4.2.1"
   gem "guard",                  ">= 0.6.2"
   gem "guard-bundler",          ">= 0.1.3"
   gem "guard-rails",            ">= 0.0.3"
   gem "guard-rspec",            ">= 0.4.3"
-  gem "rspec-rails",            ">= 2.10.1"
+  gem "rspec-rails",            ">= 2.14.0"
   gem "simplecov",              require: false
   gem "spork"
 end

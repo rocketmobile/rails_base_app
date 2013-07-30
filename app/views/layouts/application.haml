@@ -7,10 +7,13 @@
     = csrf_meta_tags
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
+    = javascript_include_tag :modernizr
   %body
     = render 'layouts/navigation'
-    .container
+    #content-wrap
       = render 'layouts/messages'
-      = yield
-      .row#footer
+      .row#content
+        .twelve.columns
+          = yield
+      = render 'layouts/footer'
     = render 'layouts/javascripts'

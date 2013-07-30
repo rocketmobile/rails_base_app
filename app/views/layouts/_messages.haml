@@ -1,5 +1,8 @@
-#flash-wrap.row
+.row#flash-wrap
   - unless flash.empty?
     #flash
       - flash.each do |name, msg|
-        = content_tag :div, msg, :class => "flash_#{name} alert" if msg.is_a?(String)
+        - if msg.is_a?(String)
+          .alert-box{class: "#{name}", "data-alert" => ""}
+            = msg
+            %a.close{href: "#"} &times;

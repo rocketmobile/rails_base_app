@@ -1,8 +1,4 @@
 %header
-  .navbar
-    .navbar-inner
-      = link_to 'RailsBaseApp', root_path, class: 'brand'
-      %nav
-        / %ul.nav
-        /   %li.divider-vertical
-        /   %li= link_to 'Thing', thing_index_path
+  %nav.top-bar
+    %ul.title-area
+      %li.name= link_to 'RailsBaseApp', root_path
