@@ -46,8 +46,6 @@ end
 
 group :development, :test do
   gem "awesome_print"
-  gem "capybara-webkit"
-  gem "capybara-screenshot"
   gem "debugger"
   gem "email_spec",             ">= 1.2.1"
   gem "faker"
