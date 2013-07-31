@@ -1,0 +1,66 @@
+.row
+  .small-12.large-12.columns
+    .panel
+      %h1 Grid
+
+.row
+  .small-12.large-12.columns
+    %h2.subheader Rules of thumb* with grid markup:
+    %p
+      %small *Not set in stone.
+
+    .row
+      .small-6.columns
+        %ul
+          %li Every module (block of reusable code) is at some point wrapped in both an element with .row and an element with .columns. This forces you to write markup/styles that look good at as many sizes as possible.
+
+      .small-6.columns
+        .panel
+          %pre.code
+            = preserve do
+              :escaped
+                <div class="row">
+                  <div class="small-12 large-8 columns">
+                    <aside class="my-super-awesome-sidebar-wrapper">
+                      ...
+
+    .row
+      .small-12.large-6.columns
+        %ul
+          %li The large columns inside a row should add up to 12. There are almost as many reasons not to do this as there are reasons to stick with this convention, but stick to 12 columns per row when it makes sense.
+      .small-12.large-6.columns
+        .panel
+          %pre.code
+            = preserve do
+              :escaped
+                <div class="row">
+                  <div class="small-12 large-8 columns">
+                    ...
+                  </div>
+                  <div class="small-12 large-4 columns">
+                    ...
+                  </div>
+                </div>
+                <div class="row">...
+
+    .row
+      .small-12.large-6.columns
+        %ul
+          %li The way Foundation 4 does nested grids is kinda whack. Main gripe: you can't define both large and small grids; you can only define small grid widths. Yeah. I know. Just look at the example.
+      .small-12.large-6.columns
+        .panel
+          %pre.code
+            = preserve do
+              :escaped
+                <div class="row">
+                  <div class="small-12 large-12 columns">
+                    <div class="row">
+                      <div class="small-6 columns">
+                        This would be half of the main column
+                      </div>
+                      <div class="small-6 columns">
+                        This would be half of the main column
+                      </div>
+                    </div>
+                  </div>
+                </div>
