@@ -4,7 +4,8 @@ ruby "1.9.3"
 gem "rails",                    "~> 4.0.0"
 gem "thin",                     "~> 1.5.0"
 
-gem 'asset_sync',               "~> 1.0.0"
+gem "asset_sync",               "~> 1.0.0"
+gem "aws-sdk",                  "~> 1.14.1"
 gem "dalli",                    "~> 2.6.4"
 gem "haml-rails",               github: 'indirect/haml-rails', ref: '6b7a5dead27957aff853b6c82b81fc13543c1aeb'
 gem "has_scope",                "~> 0.5.1"
@@ -13,6 +14,7 @@ gem "honeybadger",              "~> 1.7.0"
 gem "jquery-fileupload-rails",  "~> 0.4.1"
 gem "jquery-rails",             "~> 3.0.4"
 gem "newrelic_rpm",             "~> 3.6.6.147"
+gem "nokogiri",                 "~> 1.5.10" #aws-sdk depends on < 1.6
 gem "paperclip",                "~> 3.5.0"
 gem "pg",                       "~> 0.16.0"
 gem "progressbar",              "~> 0.20.0"
