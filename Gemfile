@@ -7,11 +7,13 @@ gem "thin",                     "~> 1.5.0"
 gem "asset_sync",               "~> 1.0.0"
 gem "aws-sdk",                  "~> 1.14.1"
 gem "dalli",                    "~> 2.6.4"
+gem "devise",                   "~> 3.0.2"
 gem "haml-rails",               github: 'indirect/haml-rails', ref: '6b7a5dead27957aff853b6c82b81fc13543c1aeb'
 gem "has_scope",                "~> 0.5.1"
 gem "hashie",                   "~> 2.0.5"
 gem "honeybadger",              "~> 1.7.0"
 gem "jquery-fileupload-rails",  "~> 0.4.1"
+gem "jquery-ui-rails",          "~> 4.0.3"
 gem "jquery-rails",             "~> 3.0.4"
 gem "newrelic_rpm",             "~> 3.6.6.147"
 gem "nokogiri",                 "~> 1.5.10" #aws-sdk depends on < 1.6
@@ -34,6 +36,7 @@ gem "sinatra",                  ">= 1.3.0", require: nil
 # Assets (rails 4 obsoleted :assets grouping)
 gem "sass-rails",             "~> 4.0.0"
 gem "coffee-rails",           "~> 4.0.0"
+gem "jquery-ui-sass-rails",   "~> 4.0.3.0"
 gem "modernizr-rails",        "~> 2.6.2.3"
 gem "uglifier",               "~> 2.1.2"
 gem "zurb-foundation",        "~> 4.3.1"
