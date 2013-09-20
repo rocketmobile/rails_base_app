@@ -10,8 +10,8 @@ RailsBaseApp::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  # Enable Rails's static asset server in case deployed to Heroku without using S3 or CDN
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS
   config.assets.js_compressor = :uglifier
@@ -32,8 +32,9 @@ RailsBaseApp::Application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
-  # See everything in the log (default is :info)
-  # config.log_level = :debug
+  # set log level with config/env variables
+  # production is set to :info by default
+  config.log_level = ENV["LOG_LEVEL"].to_sym if ENV["LOG_LEVEL"].in?(%w(debug info warn error fatal))
 
   # Prepend all log lines with the following tags
   # config.log_tags = [ :subdomain, :uuid ]
@@ -45,7 +46,13 @@ RailsBaseApp::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  # config.action_controller.asset_host = "http://assets.example.com"
+  # The path will be used during asset compilation
+  # Note: ENV VARS aren't available by default on heroku deployments at compilation time.
+  #       run  `heroku labs:enable user-env-compile` to make them available for precompilation.
+  if ENV['AWS_BUCKET'].present?
+    config.action_controller.asset_host = "//#{ENV['AWS_BUCKET']}.s3.amazonaws.com"
+    config.action_mailer.asset_host = "https://#{ENV['AWS_BUCKET']}.s3.amazonaws.com"
+  end
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )

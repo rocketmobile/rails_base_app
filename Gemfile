@@ -15,7 +15,7 @@ gem "honeybadger",              "~> 1.7.0"
 gem "jquery-fileupload-rails",  "~> 0.4.1"
 gem "jquery-ui-rails",          "~> 4.0.3"
 gem "jquery-rails",             "~> 3.0.4"
-gem "newrelic_rpm",             "~> 3.6.6.147"
+gem "newrelic_rpm",             "~> 3.6"
 gem "nokogiri",                 "~> 1.5.10" #aws-sdk depends on < 1.6
 gem "paperclip",                "~> 3.5.0"
 gem "pg",                       "~> 0.16.0"
