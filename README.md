@@ -23,6 +23,14 @@
 
   * Run `rails s` and navigate to localhost:3000 to get started!
 
+## Deploying
+  This setup 'just works' on the Heroku stack. It is tuned to be highly configurable using environmental variables. Add ENV vars on the Heroku stack with `heroku config:add KEY=value`.
+
+### Optional Optimizations
+  * Host assets from S3
+    * Add `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_BUCKET` config variables
+    * Make these variables available during precompile with `heroku labs:enable user_env_compile`
+
 ## Template TODO
   * Replace sentry with Honeybadger
   * Put JS architecture example in place

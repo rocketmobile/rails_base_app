@@ -49,10 +49,11 @@ RailsBaseApp::Application.configure do
   # The path will be used during asset compilation
   # Note: ENV VARS aren't available by default on heroku deployments at compilation time.
   #       run  `heroku labs:enable user-env-compile` to make them available for precompilation.
-  if ENV['AWS_BUCKET'].present?
-    config.action_controller.asset_host = "//#{ENV['AWS_BUCKET']}.s3.amazonaws.com"
-    config.action_mailer.asset_host = "https://#{ENV['AWS_BUCKET']}.s3.amazonaws.com"
-  end
+  # Enable serving of images, stylesheets, and JavaScripts from an asset server
+  config.action_controller.asset_host = ENV['CDN_HOST']
+  config.action_controller.asset_host ||= "//#{ENV['AWS_BUCKET']}.s3.amazonaws.com" if ENV['AWS_BUCKET'].present?
+
+  config.action_mailer.asset_host = config.action_controller.asset_host
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )

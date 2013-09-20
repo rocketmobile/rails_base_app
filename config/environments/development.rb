@@ -8,9 +8,9 @@ RailsBaseApp::Application.configure do
 
   config.eager_load = false
 
-  # Show full error reports and disable caching
+  # Show full error reports and disable or enable caching
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
@@ -20,6 +20,9 @@ RailsBaseApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Disable timeout logging
+  Rack::Timeout.unregister_state_change_observer(:logger)
 
   # Enable auto evalution of unrecognized commands
   # We explicitly enable this for easier debugging in the console (using `rails console --debug`)

@@ -362,7 +362,7 @@ DEPENDENCIES
   jquery-ui-sass-rails (~> 4.0.3.0)
   mailcatcher
   modernizr-rails (~> 2.6.2.3)
-  newrelic_rpm (~> 3.6.6.147)
+  newrelic_rpm (~> 3.6)
   nokogiri (~> 1.5.10)
   paperclip (~> 3.5.0)
   pg (~> 0.16.0)
