@@ -8,7 +8,7 @@ gem "asset_sync",               "~> 1.0.0"
 gem "aws-sdk",                  "~> 1.14.1"
 gem "dalli",                    "~> 2.6.4"
 gem "devise",                   "~> 3.0.2"
-gem "haml-rails",               github: 'indirect/haml-rails', ref: '6b7a5dead27957aff853b6c82b81fc13543c1aeb'
+gem "haml-rails",               github: "rocketmobile/haml-rails" #using our patch until templating changes are released
 gem "has_scope",                "~> 0.5.1"
 gem "hashie",                   "~> 2.0.5"
 gem "honeybadger",              "~> 1.7.0"
