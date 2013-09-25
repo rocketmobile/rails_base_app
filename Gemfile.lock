@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: git://github.com/rocketmobile/haml-rails.git
-  revision: d002db442a0777ed06118d7adeb31cd88857185d
+  revision: b50087cf993d31d95a85412ea0e2c072720aa114
   specs:
     haml-rails (0.4)
       actionpack (>= 3.1, < 4.1)
@@ -77,9 +77,6 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.1.4)
-    cache_digests (0.3.1)
-      actionpack (>= 3.2)
-      thread_safe
     celluloid (0.14.1)
       timers (>= 1.0.0)
     climate_control (0.0.3)
@@ -342,7 +339,6 @@ DEPENDENCIES
   aws-sdk (~> 1.14.1)
   better_errors
   binding_of_caller
-  cache_digests
   coffee-rails (~> 4.0.0)
   dalli (~> 2.6.4)
   debugger
