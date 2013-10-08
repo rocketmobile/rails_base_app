@@ -46,6 +46,11 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
   * Set up New Relic Availability Monitoring to keep the free Heroku app from sleeping due to inactivity
     * `heroku addons:add newrelic`
     * `heroku addons:open newrelic` to set up availability monitoring (Settings » Availability monitoring)
+  * Speed up tests using Spork
+    * [Spork](https://github.com/sporkrb/spork) is a test server that speeds up your tests by preloading the rails environment once and reusing it (by forking the process) for each test run.
+    * In the first terminal window, run `bundle exec spork` to start a Spork server.
+    * In the second terminal window, run `bundle exec rpsec --drb` to run RSpec using the Spork server. You'll notice your minimum test time drop from several seconds to well under one second.
+    * You can skip typing the `--drb` by creating a `.rspec` file in the root of your project directory to define default RSpec options. Add  `--drb` to the file to run specs through Spork when a server is running. (If you forget to start a Spork server, your specs will still run normally.)
 
 ## rails_base_app TODO
   * Put JS OO architecture example in place
