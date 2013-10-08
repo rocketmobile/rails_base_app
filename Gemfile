@@ -44,7 +44,6 @@ gem "zurb-foundation",        "~> 4.3.1"
 group :development do
   gem "awesome_print"
   gem "better_errors"
-  gem "binding_of_caller"
   gem "mailcatcher"
   gem "quiet_assets"
   gem "sqlite3"

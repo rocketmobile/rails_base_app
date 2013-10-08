@@ -1,12 +1,5 @@
 require 'rubygems'
 require 'spork'
-#uncomment the following line to use spork with the debugger
-#require 'spork/ext/ruby-debug'
-
-
-# Start tracking code coverage metrics
-# require 'coveralls'
-# Coveralls.wear! 'rails'
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
@@ -17,6 +10,12 @@ Spork.prefork do
   require 'capybara/rspec'
   require 'factory_girl'
 
+  if !ENV['DRB']
+    # Spork not running, calculate test coverage
+    require 'coveralls'
+    Coveralls.wear! 'rails'
+  end
+
   # Checks for pending migrations before tests are run.
   # If you are not using ActiveRecord, you can remove this line.
   ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
@@ -25,21 +24,15 @@ end
 Spork.each_run do
   # This code will be run each time you run your specs.
 
-  # reloads supporting ruby files with custom matchers and macros, etc,
-  # in spec/support/ and its subdirectories.
+  # reload all the models between test runs
+  # rather than between requests using `cache_classes=false`
   silence_warnings do
-    puts "reloading support files"
-    Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| load f}
-  end
-
-  # reload all the models between tests (rather than between requests with cache_classes=false)
-  silence_warnings do
-    puts "reloading models"
+    puts "Configuring: reloading models"
     Dir["#{Rails.root}/app/models/**/*.rb"].each{ |model| load model }
   end
 
   # reload all factory definitions
-  puts "reloading factory girl"
+  puts "Configuring: reloading factories"
   FactoryGirl.reload
 
   RSpec.configure do |c|
