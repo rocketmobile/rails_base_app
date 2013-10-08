@@ -30,4 +30,11 @@ RailsBaseApp::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Disable timeout logging
+  Rack::Timeout.unregister_state_change_observer(:logger)
+
+  # Enable auto evalution of unrecognized commands
+  # We explicitly enable this for easier debugging during tests
+  Debugger.settings[:autoeval] = true
 end

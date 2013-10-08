@@ -42,6 +42,7 @@ gem "uglifier",               "~> 2.1.2"
 gem "zurb-foundation",        "~> 4.3.1"
 
 group :development do
+  gem "awesome_print"
   gem "better_errors"
   gem "binding_of_caller"
   gem "mailcatcher"
@@ -50,11 +51,12 @@ group :development do
 end
 
 group :development, :test do
-  gem "awesome_print"
+  gem "capybara",               ">= 2.1.0"
   gem "debugger"
   gem "email_spec",             ">= 1.2.1"
   gem "faker"
   gem "factory_girl_rails",     ">= 4.2.1"
+  gem "fuubar"
   gem "guard",                  ">= 0.6.2"
   gem "guard-bundler",          ">= 0.1.3"
   gem "guard-rails",            ">= 0.0.3"
