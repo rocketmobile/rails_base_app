@@ -19,7 +19,6 @@ gem "newrelic_rpm",             "~> 3.6"
 gem "nokogiri",                 "~> 1.5.10" #aws-sdk depends on < 1.6
 gem "paperclip",                "~> 3.5.0"
 gem "pg",                       "~> 0.16.0"
-gem "progressbar",              "~> 0.20.0"
 gem "rack-rewrite",             "~> 1.3.3"
 gem "rack-timeout",             github: "kch/rack-timeout", tag: 'v0.1.0beta3'
 gem "squeel",                   github: "ernie/squeel", ref: '20501704e415caacb4a2b76bd6e39d93baba3188'
