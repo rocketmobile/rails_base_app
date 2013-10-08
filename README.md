@@ -2,6 +2,8 @@
 
 This base application is meant to give a common/recommended Rails app setup. It exhibits gem and convention choices that work and scale well togther. Based on experience, these conventions and gems can be used to achieve 90% of the features required of most web apps.
 
+[![Build Status](https://secure.travis-ci.org/rocketmobile/rails_base_app.png)](http://travis-ci.org/rocketmobile/rails_base_app)
+
 ## Cloning from this template
   * Fork the repo
   * Replace all instances of  'rails_base_app' with 'your-app-name' in project directory
