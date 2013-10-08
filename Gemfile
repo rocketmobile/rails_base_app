@@ -51,6 +51,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'coveralls',              require: false
   gem "capybara",               ">= 2.1.0"
   gem "debugger"
   gem "email_spec",             ">= 1.2.1"
@@ -62,6 +63,5 @@ group :development, :test do
   gem "guard-rails",            ">= 0.0.3"
   gem "guard-rspec",            ">= 0.4.3"
   gem "rspec-rails",            ">= 2.14.0"
-  gem "simplecov",              require: false
   gem "spork"
 end
