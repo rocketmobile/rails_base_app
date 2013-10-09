@@ -38,9 +38,9 @@ git push heroku master
 
 You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rails-base-app.herokuapp.com) and get the root of the deployed application.
 
-### Optional Optimizations
+## Optimizations
 
-#### Production
+### Production
   * Avoid server idling using New Relic Availability Monitoring
     * `heroku addons:add newrelic`
     * `heroku addons:open newrelic` to set up availability monitoring (Settings » Availability monitoring)
@@ -52,8 +52,8 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
     * Set up a CloudFront distribution with your S3 bucket as the origin
     * Add the `CDN_HOST` config variable with your distribution's domain name, without the protocol (ex: `d3fsl83hdxp1.cloudfront.net`)
 
-#### Development
-  * Speed your tests with [Spork](https://github.com/sporkrb/spork)
+### Development
+  * Speed your tests using [Spork](https://github.com/sporkrb/spork)
     * In a first terminal window, `bundle exec spork` will start a Spork server
     * In a second terminal window, `rspec` will now run RSpec instantly without waiting for app initialization
     * You can still run `bundle exec rspec` without Spork for one-off tests
