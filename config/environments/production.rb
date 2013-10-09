@@ -50,7 +50,7 @@ RailsBaseApp::Application.configure do
   # Note: ENV VARS aren't available by default on heroku deployments at compilation time.
   #       run  `heroku labs:enable user-env-compile` to make them available for precompilation.
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  config.action_controller.asset_host = ENV['CDN_HOST']
+  config.action_controller.asset_host = "//#{ENV['CDN_HOST']}" if ENV['CDN_HOST']
   config.action_controller.asset_host ||= "//#{ENV['AWS_BUCKET']}.s3.amazonaws.com" if ENV['AWS_BUCKET'].present?
 
   config.action_mailer.asset_host = config.action_controller.asset_host
