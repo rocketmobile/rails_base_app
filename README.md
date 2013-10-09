@@ -67,3 +67,4 @@ See the wiki for instructions for the following:
   * Create script to rename app with single command
   * Put JS OO architecture example in place
   * Make favicon.ico use asset pipeline
+  * Dynamic 500 page

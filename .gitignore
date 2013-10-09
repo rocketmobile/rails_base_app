@@ -32,4 +32,3 @@ coverage
 # Other
 .rbenv-version
 .env
-.rspec
