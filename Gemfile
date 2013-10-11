@@ -24,17 +24,18 @@ gem "rack-timeout",             github: "kch/rack-timeout", tag: 'v0.1.0beta3'
 gem "squeel",                   github: "ernie/squeel", ref: '20501704e415caacb4a2b76bd6e39d93baba3188'
 gem "will_paginate",            github: "mislav/will_paginate", ref: '0da168851b9356f678106abd19055fc6e9a6df72'
 
-# Workers
-gem "httparty",                 "~> 0.11.0"
-gem "redis",                    "~> 3.0.4"
-gem "sidekiq",                  "~> 2.13.0"
-gem "sidekiq-failures",         "~> 0.2.1"
-gem "slim",                     "~> 2.0.0"
-gem "sinatra",                  ">= 1.3.0", require: nil
+# # Workers
+# # When you need to process longer running jobs asyncronously from requests
+# # the following gems are quite useful
+# gem "httparty",                 "~> 0.11.0"
+# gem "redis",                    "~> 3.0.4"
+# gem "sidekiq",                  "~> 2.13.0"
+# gem "sidekiq-failures",         "~> 0.2.1"
+# gem "slim",                     "~> 2.0.0"
+# gem "sinatra",                  ">= 1.3.0", require: nil
 
 # Assets (rails 4 obsoleted :assets grouping)
 gem "sass-rails",             "~> 4.0.0"
-gem "coffee-rails",           "~> 4.0.0"
 gem "jquery-ui-sass-rails",   "~> 4.0.3.0"
 gem "modernizr-rails",        "~> 2.6.2.3"
 gem "uglifier",               "~> 2.1.2"

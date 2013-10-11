@@ -1,4 +1,7 @@
-# use SQLite3 for development eases
+# use SQLite3 for development ease, instead of PostgreSQL
+#
+# Note: This file is overwrriten by heroku upon deployment
+#       to attach to your heroku app's PostgreSQL database
 
 development:
   adapter: sqlite3
@@ -12,5 +15,13 @@ development:
 test:
   adapter: sqlite3
   database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+
+# For local debugging of production server issues
+# via `RAILS_ENV=production rails s`
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
   pool: 5
   timeout: 5000

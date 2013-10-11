@@ -55,6 +55,8 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
     * Add the `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD` config variables
   * Analyze traffic with Google Analytics
     * Add the `GOOGLE_TRACKING_CODE` config variable, with [your tracking code](https://support.google.com/analytics/answer/1042508?topic=1006228)
+  * Increase search engine rank by forcing production traffic to a single domain
+    * Add the `FORCE_DOMAIN` config variable with the desired domain name, without the protocol (ex: `www.example.com`)
 
 
 ### Development

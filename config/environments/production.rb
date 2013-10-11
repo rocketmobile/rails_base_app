@@ -97,4 +97,13 @@ RailsBaseApp::Application.configure do
       [u, p] == [ENV['BASIC_AUTH_USER'], ENV['BASIC_AUTH_PASSWORD']]
     end
   end
+
+  # Redirect to ensure all traffic flows through a single domain
+  # Useful in certain DNS situations where SEO is important
+  if ENV['FORCE_DOMAIN'].present?
+    config.middleware.insert_after(Rails::Rack::Logger, Rack::Rewrite) do
+      r301 %r{.*}, "http://#{ENV['FORCE_DOMAIN']}$&", :if => Proc.new { |rack_env| rack_env['SERVER_NAME'] != ENV['FORCE_DOMAIN'] }
+    end
+  end
+
 end

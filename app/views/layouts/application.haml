@@ -1,13 +1,12 @@
 %html
   %head
-    %title RailsBaseApp
+    %title= Rails.application.class.parent_name.titleize
     %meta{name: "HandheldFriendly", content: "True"}
     %meta{name: "MobileOptimized", content: "320"}
     %meta{name: "viewport", content: "width=device-width, target-densitydpi=160dpi, initial-scale=1.0"}
     = csrf_meta_tags
     = stylesheet_link_tag 'application'
-    = javascript_include_tag 'application'
-    = javascript_include_tag :modernizr
+
   %body
     = render 'layouts/navigation'
     #content-wrap
@@ -16,4 +15,7 @@
         .twelve.columns
           = yield
       = render 'layouts/footer'
+    = javascript_include_tag 'application'
+    = javascript_include_tag :modernizr
+    = content_for :javascripts
     = render 'layouts/javascripts'
