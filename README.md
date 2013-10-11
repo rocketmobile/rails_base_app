@@ -51,6 +51,11 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
   * Host assets with regional edge caches using CloudFront
     * Set up a CloudFront distribution with your S3 bucket as the origin
     * Add the `CDN_HOST` config variable with your distribution's domain name, without the protocol (ex: `d3fsl83hdxp1.cloudfront.net`)
+  * Put site behind basic authentication while under development or for staging
+    * Add the `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD` config variables
+  * Analyze traffic with Google Analytics
+    * Add the `GOOGLE_TRACKING_CODE` config variable, with [your tracking code](https://support.google.com/analytics/answer/1042508?topic=1006228)
+
 
 ### Development
   * Speed your tests using [Spork](https://github.com/sporkrb/spork)
