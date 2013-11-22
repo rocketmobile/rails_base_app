@@ -24,7 +24,7 @@ This base application is meant to give a common/recommended Rails app setup. It 
   * A Pages controller exists for you in app/controllers/pages_controller
   * A dynamic home page exists for you in app/views/pages/home.haml
   * A dynamic layout exists for you in app/views/layouts/application.haml
-  * Zurb Foundation 4 is set up as the styling framework
+  * Zurb Foundation 5 is set up as the styling framework
 
   * Run `rails s` and navigate to localhost:3000 to get started!
 
