@@ -39,7 +39,7 @@ gem "sass-rails",             "~> 4.0.0"
 gem "jquery-ui-sass-rails",   "~> 4.0.3.0"
 gem "modernizr-rails",        "~> 2.6.2.3"
 gem "uglifier",               "~> 2.1.2"
-gem "zurb-foundation",        "~> 4.3.1"
+gem "foundation-rails"
 
 group :development do
   gem "awesome_print"
