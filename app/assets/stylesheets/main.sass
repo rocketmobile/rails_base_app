@@ -1,7 +1,10 @@
+// override any foundation variables
+// before importing foundation
+@import partials/vars
+
 @import foundation
 
-// import partials directory
-// explicit for correct cascading
-@import partials/vars
+// import partials explicitly
+// to control cascading
 @import partials/navigation
 @import partials/footer
