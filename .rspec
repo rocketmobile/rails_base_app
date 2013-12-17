@@ -1,3 +1,4 @@
 --drb
 --color
 --format Fuubar
+--format html --out coverage/results.html

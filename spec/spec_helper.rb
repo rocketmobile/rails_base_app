@@ -10,30 +10,17 @@ Spork.prefork do
   require 'capybara/rspec'
   require 'factory_girl'
 
+  # # enable use of helpful `screenshot_and_open_image` helper (for integration testing)
+  # # by default the rspec driver will be rack_test, which doesn't support rendering
+  # # if you need a screenshot, mark the spec as javascript (with `, js: true` on the describe call)
+  # # to temporarily use the capybara-webkit driver which supports rendering
+  # require 'capybara-screenshot/rspec'
+
   if !ENV['DRB']
     # Spork not running, calculate test coverage
     require 'coveralls'
     Coveralls.wear! 'rails'
   end
-
-  # Checks for pending migrations before tests are run.
-  # If you are not using ActiveRecord, you can remove this line.
-  ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
-end
-
-Spork.each_run do
-  # This code will be run each time you run your specs.
-
-  # reload all the models between test runs
-  # rather than between requests using `cache_classes=false`
-  silence_warnings do
-    puts "Configuring: reloading models"
-    Dir["#{Rails.root}/app/models/**/*.rb"].each{ |model| load model }
-  end
-
-  # reload all factory definitions
-  puts "Configuring: reloading factories"
-  FactoryGirl.reload
 
   RSpec.configure do |c|
     c.filter_run :only => true
@@ -47,6 +34,13 @@ Spork.each_run do
 
     # Easier calls to factories
     c.include FactoryGirl::Syntax::Methods
+
+    # Allow user login by setting the session directly
+    # in integration tests requiring auth, avoiding signing in via slow requests
+    # Usage:
+    #   login_as(user_object, scope: :user)
+    c.include Warden::Test::Helpers
+    Warden.test_mode!
 
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
     # examples within a transaction, remove the following line or assign false
@@ -63,4 +57,59 @@ Spork.each_run do
     #     --seed 1234
     c.order = "random"
   end
+
+  # Checks for pending migrations before tests are run.
+  ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+
+  # Increase log level to speed tests
+  Rails.logger.level = 3
+
+  Capybara.javascript_driver = :slenium
+  # Capybara.javascript_driver = :webkit
+  Capybara.default_wait_time = 10
+  Capybara.server_port = 3121
+end
+
+Spork.each_run do
+  if ENV['DRB']
+    # Spork is running,
+    # calculate coverage locally
+    require 'simplecov'
+    SimpleCov.start 'rails'
+  end
+
+  # reloads supporting ruby files with custom matchers and macros, etc,
+  # in spec/support/ and its subdirectories.
+  silence_warnings do
+    puts "Configuring: reloading support files"
+    Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| load f}
+  end
+
+  # reload all the models between test runs
+  # rather than between requests using `cache_classes=false`
+  silence_warnings do
+    puts "Configuring: reloading models"
+    Dir["#{Rails.root}/app/models/**/*.rb"].each{ |model| load model }
+  end
+
+  # reload all factory definitions
+  puts "Configuring: reloading factories"
+  FactoryGirl.reload
+
+  # ensure transactional rollback works with webkit-capybara
+  # enable if using capybara-webkit
+  # ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+
+  RSpec.configure do |c|
+    # Run specs in random order to surface order dependencies. If you find an
+    # order dependency and want to debug it, you can fix the order by providing
+    # the seed, which is printed after each run (`'Randomized with seed 60468'`).
+    # `defined` is the default, which executes groups and examples in the
+    # order they are defined in the spec files.
+    #
+    # c.order = "defined"
+    # c.order = "rand:60468"
+    c.order = "random:#{rand(100000)}"
+  end
+
 end

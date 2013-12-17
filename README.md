@@ -64,6 +64,9 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
     * In a first terminal window, `bundle exec spork` will start a Spork server
     * In a second terminal window, `rspec` will now run RSpec instantly without waiting for app initialization
     * You can still run `bundle exec rspec` without Spork for one-off tests
+  * View detailed test results and coverage in your browser
+    * Open `/coverage/index.html` in a browser to see test coverage information
+    * Open `/coverage/results.html` in a browser to see real-time test progress
 
 ## Feature Examples
 See the wiki for instructions for the following:

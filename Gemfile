@@ -2,52 +2,56 @@ source 'https://rubygems.org'
 
 ruby "1.9.3"
 gem "rails",                    "~> 4.0.2"
-gem "thin",                     "~> 1.5.0"
 
+# web server
+gem "thin",                     "~> 1.6.1"
+
+# middleware
+gem "rack-rewrite",             "~> 1.4"
+gem "rack-timeout",             github: "kch/rack-timeout",
+                                tag: 'v0.1.0beta3'
+# asset management
 gem "asset_sync",               "~> 1.0.0"
-gem "aws-sdk",                  "~> 1.14.1"
+gem "aws-sdk",                  "~> 1.30.0"
+gem "delayed_paperclip",        "~> 2.6.1"                        # asyncronous image processing
+gem "foundation-rails",         "~> 5.0.2"
+gem "jquery-ui-sass-rails",     "~> 4.0.3.0"
+gem "paperclip",                "~> 3.5.0"                        # easy object attachment with s3 storage
+gem "sass-rails",               "~> 4.0.0"
+gem "s3_direct_upload",         "~> 0.1.6"                        # buffer uploading from slow-clients
+gem "uglifier",                 "~> 2.1.2"
+gem "unf",                      "~> 0.1.3"
+
+# cacheing, templateing, javascripts
 gem "dalli",                    "~> 2.6.4"
-gem "devise",                   "~> 3.0.2"
-gem "haml-rails",               github: "indirect/haml-rails"
-gem "has_scope",                "~> 0.5.1"
-gem "hashie",                   "~> 2.0.5"
-gem "honeybadger",              "~> 1.7.0"
+gem "haml-rails",               "~> 0.5.2"
 gem "jquery-fileupload-rails",  "~> 0.4.1"
 gem "jquery-ui-rails",          "~> 4.0.3"
 gem "jquery-rails",             "~> 3.0.4"
-gem "newrelic_rpm",             "~> 3.6"
-gem "nokogiri",                 "~> 1.5.10" #aws-sdk depends on < 1.6
+gem "modernizr-rails",          "~> 2.6.2.3"
 
-gem "pg",                       "~> 0.16.0"
-gem "rack-rewrite",             "~> 1.3.3"
-gem "rack-timeout",             github: "kch/rack-timeout", tag: 'v0.1.0beta3'
-gem "squeel",                   github: "ernie/squeel", ref: '20501704e415caacb4a2b76bd6e39d93baba3188'
-gem "will_paginate",            github: "mislav/will_paginate", ref: '0da168851b9356f678106abd19055fc6e9a6df72'
+# modeling
+gem "devise",                   "~> 3.2.2"
+gem "devise-async",             "~> 0.9.0"
+gem "has_scope",                "~> 0.5.1"
+gem "hashie",                   "~> 2.0.5"
+gem "squeel",                   github: "activerecord-hackery/squeel",
+                                ref: 'd3712220'
+gem "will_paginate",            "~> 3.0.5"
 
-# Images
-# easy image attachment with s3 storage,
-# asyncronous image processing
-# and buffered from slow-client uploads
-gem "paperclip",                "~> 3.5.0"
-gem "delayed_paperclip",        "~> 2.6.1"
-gem "s3_direct_upload",         "~> 0.1.6"
+# operations
+gem "honeybadger",              "~> 1.10"
+gem "newrelic_rpm",             "~> 3.7"
+gem "pg",                       "~> 0.17"
 
 # # Workers
-# # When you need to process longer running jobs asyncronously from requests
-# # the following gems are quite useful
-# gem "httparty",                 "~> 0.11.0"
-# gem "redis",                    "~> 3.0.4"
-# gem "sidekiq",                  "~> 2.13.0"
-# gem "sidekiq-failures",         "~> 0.2.1"
-# gem "slim",                     "~> 2.0.0"
-# gem "sinatra",                  ">= 1.3.0", require: nil
-
-# Assets (rails 4 obsoletes :assets grouping)
-gem "sass-rails",             "~> 4.0.0"
-gem "jquery-ui-sass-rails",   "~> 4.0.3.0"
-gem "modernizr-rails",        "~> 2.6.2.3"
-gem "uglifier",               "~> 2.1.2"
-gem "foundation-rails",       "~> 5.0.2"
+# # Process long jobs asyncronously from requests.
+# gem "httparty",                 "~> 0.12"
+# gem "redis",                    "~> 3.0"
+# gem "sidekiq",                  "~> 2.17"
+# gem "sidekiq-failures",         "~> 0.2"
+# gem "slim",                     "~> 2.0"
+# gem "sinatra",                  ">= 1.4", require: nil
 
 group :development do
   gem "awesome_print"
@@ -71,4 +75,9 @@ group :development, :test do
   gem "guard-rspec",            ">= 0.4.3"
   gem "rspec-rails",            ">= 2.14.0"
   gem "spork-rails",            "~> 4.0.0"
+
+  # # If app has significant JS functionality,
+  # # use capybara-webkit to test headlessly
+  # gem "capybara-screenshot"
+  # gem "capybara-webkit",      "~> 1.1.0"
 end
