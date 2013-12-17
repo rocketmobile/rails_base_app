@@ -59,6 +59,7 @@ group :development do
   gem "mailcatcher"
   gem "quiet_assets"
   gem "sqlite3"
+  gem "travis"
 end
 
 group :development, :test do

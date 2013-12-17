@@ -1,6 +1,13 @@
 language: ruby
 rvm:
-  - 1.9.3
-
-# uncomment this line if your project needs to run something other than `rake`:
+- 1.9.3
 script: bundle exec rspec spec
+deploy:
+  provider: heroku
+  api_key:
+    secure: dvnqH+e/va9OHBn6gyO9Tq8FEB5JwQF2LcxJNf+0WOa6ub6gnA5L6YzDsKL8Osu+RkHq+VxEQo/w6lRO0VJgK7lPOEAkhihYB5wCVs5oXGYCB1Y7Z4I2NYoPzq4Pm2hrhznex8F2vP1VMFGZv0/rSMe4Zh2ON0c13r3kAuu1HbM=
+  app:
+    master: rails-base-app
+  on:
+    repo: rocketmobile/rails_base_app
+  strategy: git
