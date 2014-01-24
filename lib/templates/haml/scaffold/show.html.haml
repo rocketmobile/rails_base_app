@@ -1,0 +1,16 @@
+.row
+  .small-6.columns
+    %h1= @<%= singular_table_name %>
+  .small-6.columns
+    .right
+      = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'button'
+      = link_to 'Delete', @<%= singular_table_name %>, :method => :delete, "data-confirm" => 'Are you sure?', class: 'button alert'
+
+.row
+<% for attribute in attributes -%>
+  %p
+    %b <%= attribute.human_name %>:
+    = @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+
+
