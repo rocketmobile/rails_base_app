@@ -1,0 +1,12 @@
+.row
+  .small-6.columns
+    %h1 <%= human_name.pluralize %>
+  .small-6.columns
+    .right
+      = link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path, class: 'button'
+
+.row
+  %ul.<%= plural_table_name %>
+    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+      %li.<%= singular_table_name %>
+        = render <%= singular_table_name %>
