@@ -26,7 +26,7 @@ This base application is meant to give a common/recommended Rails app setup. It 
   * A dynamic layout exists for you in app/views/layouts/application.haml
   * Zurb Foundation 5 is set up as the styling framework
 
-  * Run `rails s` and navigate to localhost:3000 to get started!
+  * Run `rails s` and navigate to [lvh.me:3000](http://lvh.me:3000) to get started!
 
 ## Deploying
   This setup 'just works' on the Heroku PaaS stack.
@@ -44,10 +44,10 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
   * Avoid server idling using New Relic Availability Monitoring
     * `heroku addons:add newrelic`
     * `heroku addons:open newrelic` to set up availability monitoring (Settings » Availability monitoring)
-  * Host assets remotely using S3
+  * Host assets remotely using S3 and `asset_sync`
     * Add `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_BUCKET` config variables
     * Make these variables available during precompile with `heroku labs:enable user-env-compile`
-    * Deploy again by pushing new code to the heroku remote
+    * Generate initial assets by executing `heroku run rake assets:precompile`
   * Host assets with regional edge caches using CloudFront
     * Set up a CloudFront distribution with your S3 bucket as the origin
     * Add the `CDN_HOST` config variable with your distribution's domain name, without the protocol (ex: `d3fsl83hdxp1.cloudfront.net`)

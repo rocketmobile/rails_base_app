@@ -16,9 +16,9 @@ gem "aws-sdk",                  "~> 1.30.0"
 gem "delayed_paperclip",        "~> 2.6.1"                        # asyncronous image processing
 gem "foundation-rails",         "~> 5.0.2"
 gem "jquery-ui-sass-rails",     "~> 4.0.3.0"
-gem "paperclip",                "~> 3.5.0"                        # easy object attachment with s3 storage
+gem "paperclip",                "~> 3.5.0"                       # easy object attachment with s3 storage
 gem "sass-rails",               "~> 4.0.0"
-gem "s3_direct_upload",         "~> 0.1.6"                        # buffer uploading from slow-clients
+gem "s3_direct_upload",         "~> 0.1.6"                       # buffer uploading from slow-clients
 gem "uglifier",                 "~> 2.1.2"
 gem "unf",                      "~> 0.1.3"
 
@@ -45,13 +45,11 @@ gem "newrelic_rpm",             "~> 3.7"
 gem "pg",                       "~> 0.17"
 
 # # Workers
-# # Process long jobs asyncronously from requests.
-# gem "httparty",                 "~> 0.12"
-# gem "redis",                    "~> 3.0"
+# # Process long jobs asyncronously from the rails web process.
+# # https://github.com/rocketmobile/rails_base_app/wiki/Process-long-running-jobs-asynchronously
+# gem "httparty",                 "~> 0.12"                      # make requests to slow clients in async workers
 # gem "sidekiq",                  "~> 2.17"
-# gem "sidekiq-failures",         "~> 0.2"
-# gem "slim",                     "~> 2.0"
-# gem "sinatra",                  ">= 1.4", require: nil
+# gem "sidekiq-failures",         "~> 0.3"
 
 group :development do
   gem "awesome_print"
