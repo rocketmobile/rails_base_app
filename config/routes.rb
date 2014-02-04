@@ -1,10 +1,11 @@
+require 'constraints/production_path_constraint'
+
 RailsBaseApp::Application.routes.draw do
 
   root :to => 'pages#home'
 
-  get "grid" => 'pages#grid'
-
-  # catch rest of paths with 404 page
-  match '*path', to: 'pages#not_found', via: [:get, :post]
+  # catch rest of production paths with 404 page
+  match '*path', to: 'pages#not_found', via: [:get, :post],
+                                        constraints: ProductionPathConstraint.new
 
 end
