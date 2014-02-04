@@ -3,3 +3,15 @@
     %ul.title-area
       %li.name
         %h1= link_to Rails.application.class.parent_name.titleize, root_path
+    %section.top-bar-section
+      %ul.right
+        - if current_user.present?
+          %li.has-dropdown
+            %a
+              = current_user
+            %ul.dropdown
+              %li= link_to 'Settings', edit_user_registration_path
+              %li= link_to 'Sign Out', destroy_user_session_path
+        - else
+          %li.active
+            = link_to 'Sign In', new_user_session_path
