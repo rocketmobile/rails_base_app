@@ -21,6 +21,7 @@
 //= require puts
 //= require foundation/foundation
 //= require foundation/foundation.alert
+//= require foundation/foundation.topbar
 //
 // Include all elements from /elements directory
 //
@@ -31,7 +32,6 @@
 // foundation/foundation.abide
 // foundation/foundation.accordion
 // foundation/foundation.clearing
-// foundation/foundation.dropdown
 // foundation/foundation.equalizer
 // foundation/foundation.interchange
 // foundation/foundation.joyride
@@ -41,7 +41,6 @@
 // foundation/foundation.reveal
 // foundation/foundation.tab
 // foundation/foundation.tooltip
-// foundation/foundation.topbar
 
 // Initialize libraries during render
 $(function(){ $(document).foundation(); });

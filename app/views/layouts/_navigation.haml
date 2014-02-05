@@ -8,6 +8,7 @@
         - if current_user.present?
           %li.has-dropdown
             %a
+              = image_tag current_user.avatar.url(:tiny_square), class: 'avatar'
               = current_user
             %ul.dropdown
               %li= link_to 'Settings', edit_user_registration_path
