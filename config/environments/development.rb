@@ -18,6 +18,7 @@ RailsBaseApp::Application.configure do
   # Mail: use mailcatcher in development to send/catch SMTP messages on :1025
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  config.action_mailer.default_url_options = { :host => 'lvh.me:3000' }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

@@ -1,4 +1,5 @@
 %header
-  %nav.top-bar
+  %nav.top-bar{"data-topbar" => true}
     %ul.title-area
-      %li.name= link_to Rails.application.class.parent_name.titleize, root_path
+      %li.name
+        %h1= link_to Rails.application.class.parent_name.titleize, root_path
