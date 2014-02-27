@@ -60,6 +60,8 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
   * Continously deploy the 'golden' master branch
     * Run `travis setup heroku` to configure for automatic deploys after a passed test-suite
     * Add the `strategy: git` value to the `deploy` key in `.travis.yml` so `user-env-compile` works correctly
+  * Expire long-running requests
+    * Set the `RACK_TIMEOUT` config variable to the number of seconds to allow a request to run before raising `Timeout::Error`
 
 
 ### Development
