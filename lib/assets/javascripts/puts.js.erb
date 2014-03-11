@@ -1,0 +1,52 @@
+var returnFalseFunction = function () {
+  return false;
+};
+
+var putsContext = ""
+var puts = returnFalseFunction;
+
+var allLocal = false;
+<% if Rails.application.config.consider_all_requests_local %>
+allLocal = true;
+<% end %>
+
+function Log(val){
+  this.setDebug(allLocal);
+  this.attached = false;
+}
+Log.prototype = {
+  getDebug : function(){
+    return this._debug;
+  },
+  setDebug : function(val){
+    if (val){this.attach();}else{this.detatch();}
+    this._debug = val;
+  },
+  attach : function(){
+    if (!$('.old-ie').length){
+      if (console.log.bind !== 'undefined') { // IE < 10
+        puts = Function.prototype.bind.call(console.log, console, putsContext);
+      }
+      else {
+        puts = console.log.bind(console, putsContext);
+      }
+      this.attached = true;
+    }
+  },
+  detatch : function(){
+    puts = returnFalseFunction;
+    this.attached = false;
+  },
+  hasConsole : function(){
+    return (!!window.console);
+  }
+};
+
+window.logger = new Log();
+
+puts('****************************************************************');
+puts('** Non-production environment detected, JS logging turned on. **')
+puts('****************************************************************');
+
+// In case console.log is accidentally used, won't error IE7, etc
+if ( ! window.console ) console = { log: function(){} };

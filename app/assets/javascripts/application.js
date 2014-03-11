@@ -18,12 +18,19 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require puts
 //= require foundation/foundation
-
+//
+//
+// Require elements from /elements directory
+//
+//= require_tree ./elements
 
 $(function(){ $(document).foundation(); });
 
+$(window).load(function(){
+  ExampleObject.autoInit();
+});
 
 // Foundation scripts that can be imported
 
