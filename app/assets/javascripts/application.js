@@ -22,8 +22,6 @@
 //= require foundation/foundation
 
 
-$(document).foundation();
-
 $(function(){ $(document).foundation(); });
 
 
