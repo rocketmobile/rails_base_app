@@ -65,6 +65,9 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
   * Continously deploy the 'golden' master branch
     * Run `travis setup heroku` to configure for automatic deploys after a passed test-suite
     * Add the `strategy: git` value to the `deploy` key in `.travis.yml` so `user-env-compile` works correctly
+  * Use a [russian-doll cacheing pattern](http://blog.remarkablelabs.com/2012/12/russian-doll-caching-cache-digests-rails-4-countdown-to-2013)
+    * Add a memcached client with `heroku addons:add memcachier`
+    * Use simple, auto-expiring cache keys in your views (ex:`- cache model_object do <a bunch of haml that will generate many persistence-layer queries>`)
 
 
 #### Development
