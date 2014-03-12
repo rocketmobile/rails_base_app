@@ -60,13 +60,11 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
     * Add the `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD` config variables
   * Analyze traffic with Google Analytics
     * Add the `GOOGLE_TRACKING_CODE` config variable, with [your tracking code](https://support.google.com/analytics/answer/1042508?topic=1006228)
-  * Increase search engine rank by forcing production traffic to a single domain
-    * Add the `FORCE_DOMAIN` config variable with the desired domain name, without the protocol (ex: `www.example.com`)
+  * Expire long-running requests
+    * Set the `RACK_TIMEOUT` config variable to the number of seconds to allow a request to run before raising `Timeout::Error`
   * Continously deploy the 'golden' master branch
     * Run `travis setup heroku` to configure for automatic deploys after a passed test-suite
     * Add the `strategy: git` value to the `deploy` key in `.travis.yml` so `user-env-compile` works correctly
-  * Expire long-running requests
-    * Set the `RACK_TIMEOUT` config variable to the number of seconds to allow a request to run before raising `Timeout::Error`
 
 
 #### Development

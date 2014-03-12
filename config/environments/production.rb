@@ -8,7 +8,7 @@ RailsBaseApp::Application.configure do
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = ENV['CONSIDER_REQUESTS_LOCAL'] == "true"
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = ENV['DISABLE_CACHING'] != "true"
 
   # Enable Rails's static asset server in case deployed to Heroku without using S3 or CDN
   config.serve_static_assets = true
@@ -21,6 +21,16 @@ RailsBaseApp::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+
+  # Precompile Stylesheet assets
+  # config.assets.precompile += [
+  #                               'users.css'
+  #                             ]
+
+  # Precompile Javascript assets
+  # config.assets.precompile += [
+  #                               'users.js'
+  #                             ]
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -43,7 +53,15 @@ RailsBaseApp::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  # Using high performance dalli client
+  if ENV["MEMCACHIER_SERVERS"].present?
+    config.cache_store = :dalli_store,
+                         ENV["MEMCACHIER_SERVERS"].split(","),
+                         {:username => ENV["MEMCACHIER_USERNAME"],
+                         :password => ENV["MEMCACHIER_PASSWORD"]}
+  else
+    config.cache_store = :dalli_store
+  end
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # The path will be used during asset compilation
@@ -52,16 +70,6 @@ RailsBaseApp::Application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   config.action_controller.asset_host = "//#{ENV['CDN_HOST']}" if ENV['CDN_HOST']
   config.action_controller.asset_host ||= "//#{ENV['AWS_BUCKET']}.s3.amazonaws.com" if ENV['AWS_BUCKET'].present?
-
-  config.action_mailer.asset_host = config.action_controller.asset_host
-
-  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
-
-  # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.default_url_options = { :host => ENV["EMAIL_HOST"] || "example.com" }
 
   if ENV['SENDGRID_USERNAME'].present?
     ActionMailer::Base.smtp_settings = {
@@ -75,6 +83,11 @@ RailsBaseApp::Application.configure do
 
     ActionMailer::Base.delivery_method = :smtp
   end
+  # Disable delivery errors, bad email addresses will be ignored
+  # config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.default_url_options = { :host => ENV["EMAIL_HOST"] || "www.example.com" }
+  config.action_mailer.asset_host = config.action_controller.asset_host
 
   # Enable threaded mode
   # config.threadsafe!
@@ -92,7 +105,7 @@ RailsBaseApp::Application.configure do
 
   # Put whole application behind basic auth if ENV vars are set up
   # good while under construction or for staging deployments
-  if ENV['BASIC_AUTH_USER'].present? && ENV['BASIC_AUTH_PASSWORD'].present?
+  if ENV['BEHIND_BASIC_AUTH'] == 'true' && ENV['BASIC_AUTH_USER'].present? && ENV['BASIC_AUTH_PASSWORD'].present?
     config.middleware.insert_after(Rails::Rack::Logger, "::Rack::Auth::Basic", "Authentication Required") do |u, p|
       [u, p] == [ENV['BASIC_AUTH_USER'], ENV['BASIC_AUTH_PASSWORD']]
     end
