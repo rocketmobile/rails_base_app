@@ -20,23 +20,24 @@
 //= require jquery_ujs
 //= require puts
 //= require foundation/foundation
+//= require foundation/foundation.alert
 //
-//
-// Require elements from /elements directory
+// Include all elements from /elements directory
 //
 //= require_tree ./elements
 
+// Initialize libraries during render
 $(function(){ $(document).foundation(); });
 
+// Initialize elements after page is loaded
 $(window).load(function(){
   ExampleObject.autoInit();
 });
 
-// Foundation scripts that can be imported
-
+// Other Foundation scripts available:
+//
 // foundation/foundation.abide
 // foundation/foundation.accordion
-// foundation/foundation.alert
 // foundation/foundation.clearing
 // foundation/foundation.dropdown
 // foundation/foundation.equalizer
