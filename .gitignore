@@ -15,20 +15,19 @@
 /db/*.sqlite3
 /db/dump
 
-# use asset pipeline, ignore precompiles
+# use asset pipeline, ignore precompiles (done on deploy)
 /public/assets
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
-# Ignore test coverage reports
-coverage
-
-# Ignore zeus files
-.zeus*
 /public/system
 
-# Other
+# Ignore test coverage reports and rendered README
+coverage
+README.html
+
+# config mgmt config files
 .rbenv-version
 .env
+.zeus*

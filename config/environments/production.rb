@@ -7,7 +7,7 @@ RailsBaseApp::Application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = ENV['CONSIDER_REQUESTS_LOCAL'] == "true"
   config.action_controller.perform_caching = true
 
   # Enable Rails's static asset server in case deployed to Heroku without using S3 or CDN

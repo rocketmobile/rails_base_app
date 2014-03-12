@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby "1.9.3"
-gem "rails",                    "~> 4.0.2"
+gem "rails",                    "~> 4.0.3"
 
 # web server
 gem "thin",                     "~> 1.6.1"
@@ -10,34 +10,39 @@ gem "thin",                     "~> 1.6.1"
 gem "rack-rewrite",             "~> 1.4"
 gem "rack-timeout",             github: "kch/rack-timeout",
                                 tag: 'v0.1.0beta3'
-# asset management
+
+# views: asset generation, javascripts, stylesheets
 gem "asset_sync",               "~> 1.0.0"
 gem "aws-sdk",                  "~> 1.30.0"
-gem "delayed_paperclip",        "~> 2.6.1"                        # asyncronous image processing
-gem "foundation-rails",         "~> 5.0.2"
+gem "foundation-rails",         "~> 5.1.1"
+gem "jquery-fileupload-rails",  "~> 0.4.1"
+gem "jquery-rails",             "~> 3.0.4"
 gem "jquery-ui-sass-rails",     "~> 4.0.3.0"
-gem "paperclip",                "~> 3.5.0"                       # easy object attachment with s3 storage
+gem "modernizr-rails",          "~> 2.6.2.3"
 gem "sass-rails",               "~> 4.0.0"
-gem "s3_direct_upload",         "~> 0.1.6"                       # buffer uploading from slow-clients
 gem "uglifier",                 "~> 2.1.2"
 gem "unf",                      "~> 0.1.3"
+gem "selectivizr-rails",        "~> 1.1.2"
+gem "select2-rails",            "~> 3.5.3"
 
-# cacheing, templateing, javascripts
+# views: cacheing, templateing, html generation
 gem "dalli",                    "~> 2.6.4"
 gem "haml-rails",               "~> 0.5.2"
-gem "jquery-fileupload-rails",  "~> 0.4.1"
-gem "jquery-ui-rails",          "~> 4.0.3"
-gem "jquery-rails",             "~> 3.0.4"
-gem "modernizr-rails",          "~> 2.6.2.3"
+gem "rabl",                     "~> 0.9.3"
+gem "roadie",                   "~> 2.4.3"
+gem "s3_direct_upload",         "~> 0.1.6"                        # buffer uploading from slow-clients
+
+# controllers
+gem "has_scope",                "~> 0.5.1"
+gem "url_store",                "~> 0.3.5"
+gem "will_paginate",            "~> 3.0.5"
+
 
 # modeling
+gem "delayed_paperclip",        "~> 2.6.1"                        # asyncronous image processing
 gem "devise",                   "~> 3.2.2"
-gem "devise-async",             "~> 0.9.0"
-gem "has_scope",                "~> 0.5.1"
 gem "hashie",                   "~> 2.0.5"
-gem "squeel",                   github: "activerecord-hackery/squeel",
-                                ref: 'd3712220'
-gem "will_paginate",            "~> 3.0.5"
+gem "paperclip",                "~> 3.5.0"                        # easy object attachment with s3 storage
 
 # operations
 gem "honeybadger",              "~> 1.10"
@@ -50,20 +55,23 @@ gem "pg",                       "~> 0.17"
 # gem "httparty",                 "~> 0.12"                      # make requests to slow clients in async workers
 # gem "sidekiq",                  "~> 2.17"
 # gem "sidekiq-failures",         "~> 0.3"
+# gem "sinatra",                  "~> 1.4.4"
 
 group :development do
   gem "awesome_print"
   gem "better_errors"
+  gem "html2haml"
   gem "mailcatcher"
   gem "quiet_assets"
   gem "sqlite3"
   gem "travis"
 end
 
+gem "debugger", groups: [:development, :test]
+
 group :development, :test do
   gem 'coveralls',              require: false
   gem "capybara",               ">= 2.1.0"
-  gem "debugger"
   gem "email_spec",             ">= 1.2.1"
   gem "faker"
   gem "factory_girl_rails",     ">= 4.2.1"
