@@ -26,14 +26,6 @@
 //
 //= require_tree ./elements
 
-// Initialize libraries during render
-$(function(){ $(document).foundation(); });
-
-// Initialize elements after page is loaded
-$(window).load(function(){
-  ExampleObject.autoInit();
-});
-
 // Other Foundation scripts available:
 //
 // foundation/foundation.abide
@@ -50,3 +42,11 @@ $(window).load(function(){
 // foundation/foundation.tab
 // foundation/foundation.tooltip
 // foundation/foundation.topbar
+
+// Initialize libraries during render
+$(function(){ $(document).foundation(); });
+
+// Initialize elements after page is loaded
+$(window).load(function(){
+  ExampleObject.autoInit();
+});
