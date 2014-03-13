@@ -15,9 +15,20 @@ RailsBaseApp::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
-  # Mail: use mailcatcher in development to send/catch SMTP messages on :1025
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  smtp_server = {address: 'localhost', port: 1025}
+  begin
+    require 'net/smtp'
+    Net::SMTP.start(smtp_server[:address], smtp_server[:port]).finish
+    # Mailcatcher running - use to intercept SMTP messages on :1025
+    # viewable at localhost:1080
+    config.action_mailer.smtp_settings = smtp_server
+    config.action_mailer.delivery_method = :smtp
+  rescue
+    # Mailcatcher not running, accumulate emails in the
+    # ActionMailer::Base.deliveries array.
+    config.action_mailer.delivery_method = :test
+  end
+
   # Use www for subdomain replacement logic in any mailers
   config.action_mailer.default_url_options = { host: 'www.lvh.me', port: '3000' }
   config.action_mailer.asset_host = 'http://lvh.me:3000'
