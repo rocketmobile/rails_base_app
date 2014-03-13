@@ -65,6 +65,8 @@ group :development do
   gem "quiet_assets"
   gem "sqlite3"
   gem "travis"
+  gem "guard-livereload",       require: false
+  gem "guard-sass",             require: false
 end
 
 gem "debugger", groups: [:development, :test]
