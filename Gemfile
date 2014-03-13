@@ -60,9 +60,12 @@ gem "pg",                       "~> 0.17"
 group :development do
   gem "awesome_print"
   gem "better_errors"
+  gem "guard-livereload",       require: false
+  gem "guard-sass",             require: false
   gem "html2haml"
   gem "mailcatcher"
   gem "quiet_assets"
+  gem "rack-livereload"
   gem "sqlite3"
   gem "travis"
 end

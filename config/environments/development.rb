@@ -56,4 +56,8 @@ RailsBaseApp::Application.configure do
     g.request_specs false
     g.routing_specs false
   end
+
+  # Inject scripts in responses to connect to an optional guard process
+  # which will result in page reloads automatically upon view/markup changes
+  config.middleware.use Rack::LiveReload
 end
