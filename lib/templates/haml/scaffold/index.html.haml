@@ -8,5 +8,5 @@
 .row
   %ul.<%= plural_table_name %>
     - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
-      %li.<%= singular_table_name %>
+      %li
         = render <%= singular_table_name %>
