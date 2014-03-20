@@ -1,5 +1,5 @@
-.row#flash-wrap
-  - unless flash.empty?
+- unless flash.empty?
+  .row#flash-wrap
     #flash
       - flash.each do |name, msg|
         - if msg.is_a?(String)
