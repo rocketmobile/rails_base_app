@@ -1,11 +1,20 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
+ * This is a manifest file that'll be compiled into application.css,
+ * which will include all the styles referenced below.
  *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- * Use the `*= require` convention to add assets from gems or from lib/assets/stylesheets. Other
- * sass partials can be added using the `@import` convention used below.
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets,
+ * can be referenced here using a relative path.
+ *
+ * 1. Unmodified libraries via gems or files in lib/assets/stylesheets:
+ *
+ *= require select2
+ *= require jquery.ui.core
+ *= require jquery.ui.datepicker
+ *
+ *
+ * 2. Application specific styles and overrides:
+ *= require_self
+ *
  */
 
 // Variables and Functions ///////////////////
