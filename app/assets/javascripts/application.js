@@ -46,7 +46,7 @@
 // Initialize libraries during render
 $(function(){ $(document).foundation(); });
 
-// Initialize elements after page is loaded
+// Initialize custom elements after page is loaded
 $(window).load(function(){
   ExampleObject.autoInit();
 });
