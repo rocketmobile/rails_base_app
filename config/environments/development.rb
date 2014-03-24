@@ -39,6 +39,10 @@ RailsBaseApp::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  # Inject scripts in responses to connect to an optional guard process
+  # which will result in page reloads automatically upon view/markup changes
+  config.middleware.insert_before Rack::Lock, Rack::LiveReload
+
   # Disable timeout logging
   Rack::Timeout.unregister_state_change_observer(:logger)
 
@@ -56,8 +60,4 @@ RailsBaseApp::Application.configure do
     g.request_specs false
     g.routing_specs false
   end
-
-  # Inject scripts in responses to connect to an optional guard process
-  # which will result in page reloads automatically upon view/markup changes
-  config.middleware.use Rack::LiveReload
 end
