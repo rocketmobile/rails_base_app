@@ -14,7 +14,7 @@ gem "rack-timeout",             github: "kch/rack-timeout",
 # views: asset generation, javascripts, stylesheets
 gem "asset_sync",               "~> 1.0.0"
 gem "aws-sdk",                  "~> 1.30.0"
-gem "foundation-rails",         "~> 5.1.1"
+gem "foundation-rails",         "~> 5.2.1"
 gem "jquery-fileupload-rails",  "~> 0.4.1"
 gem "jquery-rails",             "~> 3.0.4"
 gem "jquery-ui-sass-rails",     "~> 4.0.3.0"
