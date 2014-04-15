@@ -3,10 +3,17 @@
 
 en:
   click_here: "Click here"
-  error: "An unexpected error occurred"
-  not_found: "This page cannot be found"
+
+  pages:
+    home:
+      welcome_flash: "Welcome to RailsBaseApp!"
+    error:
+      unexpected_error_occurred: "An unexpected error occurred"
+    not_found:
+      page_not_found: "This page cannot be found"
+    timeout:
+      too_long: "That was taking too long"
+      try_again: "Try again"
+
   or: "or"
   return_home: "to return to the home page."
-  timeout: "That was taking too long"
-  try_again: "Try again"
-  welcome_flash: "Welcome to RailsBaseApp!"

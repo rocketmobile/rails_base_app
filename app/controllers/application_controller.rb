@@ -39,8 +39,8 @@ class ApplicationController < ActionController::Base
       from_param = !visitor_locale.nil?
 
       visitor_locale ||= cookies[:locale].to_sym if I18n.available_locales.include?(cookies[:locale].try(:to_sym)) #forwards compatibility with lang code changes
-      visitor_locale ||= request.preferred_language_from(I18n.available_locales).try(:to_sym)
-      visitor_locale ||= request.compatible_language_from(I18n.available_locales).try(:to_sym)
+      # visitor_locale ||= request.preferred_language_from(I18n.available_locales).try(:to_sym)
+      # visitor_locale ||= request.compatible_language_from(I18n.available_locales).try(:to_sym)
       visitor_locale ||= I18n.default_locale
 
       cookies.permanent[:locale] = visitor_locale

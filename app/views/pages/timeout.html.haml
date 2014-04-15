@@ -1,8 +1,8 @@
 .text-center
-  %h2= t(:timeout)
+  %h2= t('pages.timeout.too_long')
 
   %p
-    = link_to t(:try_again), '#', onclick: "window.location.reload(true);"
-    = t(:or)
-    = link_to t(:click_here), root_path
-    = t(:return_home)
+    = link_to t('pages.timeout.try_again'), '#', onclick: "window.location.reload(true);"
+    = t('or')
+    = link_to t('click_here'), root_path
+    = t('return_home')

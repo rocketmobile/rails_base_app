@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    flash.now[:welcome] = t(:welcome_flash)
+    flash.now[:welcome] = t('pages.home.welcome_flash')
   end
 end
