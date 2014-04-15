@@ -1,8 +1,8 @@
 .text-center
-  %h2 That was taking too long
+  %h2= t(:timeout)
 
   %p
-    = link_to "Try again", '#', onclick: "window.location.reload(true);"
-    or
-    = link_to "click here", root_path
-    to return to the home page.
+    = link_to t(:try_again), '#', onclick: "window.location.reload(true);"
+    = t(:or)
+    = link_to t(:click_here), root_path
+    = t(:return_home)

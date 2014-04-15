@@ -2,4 +2,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  click_here: "Click here"
+  error: "An unexpected error occurred"
+  not_found: "This page cannot be found"
+  or: "or"
+  return_home: "to return to the home page."
+  timeout: "That was taking too long"
+  try_again: "Try again"
+  welcome_flash: "Welcome to RailsBaseApp!"

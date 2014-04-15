@@ -1,6 +1,6 @@
 .text-center
-  %h2 This page cannot be found
+  %h2= t(:not_found)
 
   %p
-    = link_to "Click here", root_path
-    to return to the home page.
+    = link_to t(:click_here), root_path
+    = t(:return_home)

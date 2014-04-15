@@ -1,6 +1,6 @@
 .text-center
-  %h2 An unexpected error occurred
+  %h2= t(:error)
 
   %p
-    = link_to "Click here", root_path
-    to return to the home page.
+    = link_to t(:click_here), root_path
+    = t(:return_home)

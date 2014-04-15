@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    flash.now[:welcome] = "Welcome to #{Rails.application.class.parent_name.titleize}!"
+    flash.now[:welcome] = t(:welcome_flash)
   end
 end
