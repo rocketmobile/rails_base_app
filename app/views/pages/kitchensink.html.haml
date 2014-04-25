@@ -1,0 +1,773 @@
+%h1#kitchen-sink Kitchen sink
+%h3.subheader This page includes every single Foundation element so that we can make sure things work together smoothly.
+
+= render partial: "kitchensink/alert_box"
+
+= render partial: "kitchensink/block_grid"
+
+%h4#breadcrumbs Breadcrumbs
+%ul.breadcrumbs
+  %li
+    %a{href: "#"} Home
+  %li
+    %a{href: "#"} Features
+  %li.unavailable
+    %a{href: "#"} Gene Splicing
+  %li.current
+    %a{href: "#"} Cloning
+%hr
+%h4#buttons Buttons
+.row
+  .small-6.large-6.columns
+    %a.tiny.button{href: "#"} .tiny.button
+    %br/
+    %a.small.button{href: "#"} .small.button
+    %br/
+    %a.button{href: "#"} .button
+    %br/
+    %a.button.expand{href: "#"} .expand
+    %br/
+  .small-6.large-6.columns
+    %a.tiny.button.secondary{href: "#"} .tiny.secondary
+    %br/
+    %a.small.button.success.radius{href: "#"} .small.success.radius
+    %br/
+    %a.button.alert.round.disabled{href: "#"} .round.disabled
+    %br/
+%hr
+%h4#button-groups Button Groups
+%ul.button-group
+  %li
+    %a.small.button{href: "#"} Button 1
+  %li
+    %a.small.button{href: "#"} Button 2
+  %li
+    %a.small.button{href: "#"} Button 3
+%ul.button-group.radius
+  %li
+    %a.button.secondary{href: "#"} Button 1
+  %li
+    %a.button.secondary{href: "#"} Button 2
+  %li
+    %a.button.secondary{href: "#"} Button 3
+  %li
+    %a.button.secondary{href: "#"} Button 4
+%ul.button-group.round.even-3
+  %li
+    %a.button.alert{href: "#"} Button 1
+  %li
+    %a.button.alert{href: "#"} Button 2
+  %li
+    %a.button.alert{href: "#"} Button 3
+%ul.button-group.round.even-3
+  %li
+    %input.button.success{type: "submit", value: "Button 1"}
+  %li
+    %input.button.success{type: "submit", value: "Button 2"}
+  %li
+    %input.button.success{type: "submit", value: "Button 3"}
+%hr
+%h4#dropdown-buttons Dropdown Buttons
+%ul#drop.f-dropdown.content{"data-dropdown-content" => ""}
+  %li
+    %a{href: "#"} This is a link
+  %li
+    %a{href: "#"} This is another
+  %li
+    %a{href: "#"} Yet another
+%p
+  %a.tiny.button.dropdown{"data-dropdown" => "drop", href: "#"} Dropdown Button
+  %br/
+  %a.small.secondary.radius.button.dropdown{"data-dropdown" => "drop", href: "#"} Dropdown Button
+  %br/
+  %a.button.alert.round.dropdown{"data-dropdown" => "drop", href: "#"} Dropdown Button
+  %br/
+  %a.large.success.button.dropdown{"data-dropdown" => "drop", href: "#"} Dropdown Button
+  %br/
+  %a.large.button.dropdown.expand{"data-dropdown" => "drop", href: "#"} Dropdown Button
+%hr
+%h4#split-buttons Split Buttons
+%p
+  %a.tiny.button.split{href: "#"}
+    Split Button
+    %span{"data-dropdown" => "drop"}
+  %br/
+  %a.small.secondary.radius.button.split{href: "#"}
+    Split Button
+    %span{"data-dropdown" => "drop"}
+  %br/
+  %a.button.alert.round.split{href: "#"}
+    Split Button
+    %span{"data-dropdown" => "drop"}
+  %br/
+  %a.large.success.button.split{href: "#"}
+    Split Button
+    %span{"data-dropdown" => "drop"}
+%hr
+%h4#clearing Clearing
+%div
+  .clearing-assembled
+    %div
+      %a.clearing-close{href: "#"} ×
+      .visible-img{style: "display: none"}
+        .clearing-touch-label
+        %img{alt: "", src: "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D"}
+        %p.clearing-caption
+        %a.clearing-main-prev{href: "#"}
+          %span
+        %a.clearing-main-next{href: "#"}
+          %span
+      .carousel
+        %ul.clearing-thumbs{"data-clearing" => ""}
+          %li
+            %a.th.hoverZoomLink{href: "http://foundation.zurb.com/docs/assets/img/examples/comet.jpg"}
+              %img{"data-caption" => "Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum.", src: "http://foundation.zurb.com/docs/assets/img/examples/comet-th-sm.jpg"}
+          %li
+            %a.th.hoverZoomLink{href: "http://foundation.zurb.com/docs/assets/img/examples/earth.jpg"}
+              %img{src: "http://foundation.zurb.com/docs/assets/img/examples/earth-th-sm.jpg"}
+          %li
+            %a.th.hoverZoomLink{href: "http://foundation.zurb.com/docs/assets/img/examples/launch.jpg"}
+              %img{"data-caption" => "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.", src: "http://foundation.zurb.com/docs/assets/img/examples/launch-th-sm.jpg"}
+          %li
+            %a.th.hoverZoomLink{href: "http://foundation.zurb.com/docs/assets/img/examples/satelite.jpg"}
+              %img{src: "http://foundation.zurb.com/docs/assets/img/examples/satelite-th-sm.jpg"}
+          %li
+            %a.th.hoverZoomLink{href: "http://foundation.zurb.com/docs/assets/img/examples/space.jpg"}
+              %img{"data-caption" => "Integer posuere erat a ante venenatis dapibus posuere velit aliquet.", src: "http://foundation.zurb.com/docs/assets/img/examples/space-th-sm.jpg"}
+%hr
+%h4#forms Forms
+%form
+  %fieldset
+    %legend Fieldset
+    .row
+      .large-12.columns
+        %label Input Label
+        %input{placeholder: "large-12.columns", type: "text"}
+    .row
+      .large-4.columns
+        %label Input Label
+        %input{placeholder: "large-4.columns", type: "text"}
+      .large-4.columns
+        %label Input Label
+        %input{placeholder: "large-4.columns", type: "text"}
+      .large-4.columns
+        .row.collapse
+          %label Input Label
+          .small-9.columns
+            %input{placeholder: "small-9.columns", type: "text"}
+          .small-3.columns
+            %span.postfix .com
+    .row
+      .large-12.columns
+        %label Textarea Label
+        %textarea{placeholder: "small-12.columns"}
+%hr
+%h4#dropdowns Dropdowns
+%p
+  %a.button{"data-dropdown" => "tinyDrop", href: "#"} Link Dropdown »
+  %a.button{"data-dropdown" => "contentDrop", href: "#"} Content Dropdown »
+  / Dropdowns
+%ul#tinyDrop.f-dropdown{"data-dropdown-content" => ""}
+  %li
+    %a{href: "#"} This is a link
+  %li
+    %a{href: "#"} This is another
+  %li
+    %a{href: "#"} Yet another
+#contentDrop.f-dropdown.content.medium{"data-dropdown-content" => ""}
+  %h4 Title
+  %p
+    Some text that people will think is awesome! Some text that people will
+    think is awesome! Some text that people will think is awesome!
+  %img{src: "http://foundation.zurb.com/docs/assets/img/examples/launch.jpg"}
+  %p Launching a Discovery Mission
+  %a.button{href: "#"} Button
+%hr
+%h4#flex-video Flex Video
+.flex-video
+  %iframe{allowfullscreen: "", frameborder: "0", height: "315", src: "http://www.youtube.com/embed/0_EW8aNgKlA", width: "420"}
+%hr
+%h4#inline-lists Inline Lists
+%ul.inline-list
+  %li
+    %a{href: "#"} Link 1
+  %li
+    %a{href: "#"} Link 2
+  %li
+    %a{href: "#"} Link 3
+  %li
+    %a{href: "#"} Link 4
+  %li
+    %a{href: "#"} Link 5
+%hr
+%h4#joyride Joyride
+%div
+  %a#start-jr.secondary.button{name: "start-jr"} Start Joyride
+  %h5#numero1.so-awesome Build Joyride with HTML
+  %p#numero2.so-awesome Stop Number 2 for You!
+  / stops
+  %ol.joyride-list{"data-joyride" => ""}
+    %li{"data-class" => "custom so-awesome", "data-id" => "numero1", "data-text" => "Next"}
+      %h4 Stop #1
+      %p
+        You can control all the details for you tour stop. Any valid HTML will
+        work inside of Joyride.
+    %li{"data-button" => "Next", "data-id" => "numero2"}
+      %h4 Stop #2
+      %p Get the details right by styling Joyride with a custom stylesheet!
+    %li{"data-button" => "Next"}
+      %h4 Stop #3
+      %p It works as a modal too!
+%hr
+%h4#keystroke Keystroke
+%p
+  To make something pretty, press and hold
+  %kbd cmd + alt + shift + w + a + !
+%hr
+%h4#labels Labels
+%p
+  %span.label Regular Label
+  %br/
+  %span.radius.secondary.label Radius Secondary Label
+  %br/
+  %span.round.alert.label Round Alert Label
+  %br/
+  %span.success.label Success Label
+  %br/
+%hr
+%h4#magellan Magellan
+%div{"data-magellan-expedition" => "fixed", style: ""}
+  %dl.sub-nav
+    %dd{"data-magellan-arrival" => "build"}
+      %a{href: "#build"} Build with HTML
+    %dd{"data-magellan-arrival" => "js"}
+      %a{href: "#js"} Using Javascript
+%p
+  %a{name: "build"}
+%p
+%h5{"data-magellan-destination" => "build"} Build With Predefined HTML Structure
+%p
+%p Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper.
+%p
+  %a{name: "js"}
+%p
+%h5{"data-magellan-destination" => "js"} Awesome JS Goodness
+%p
+%p Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper.
+%hr
+%h4#orbit Orbit
+.row
+  .large-12.columns
+    .orbit-container
+      %ul#featured1.orbit-slides-container.slide.swipe-next{"data-options" => "timer_speed:5000;", "data-orbit" => "", style: "min-height: 280px;"}
+        %li{style: ""}
+          %img{src: "http://foundation.zurb.com/docs/assets/img/examples/satelite-orbit.jpg"}
+          .orbit-caption
+            Caption One. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        %li{style: ""}
+          %img{src: "http://foundation.zurb.com/docs/assets/img/examples/andromeda-orbit.jpg"}
+          .orbit-caption
+            Caption Two. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        %li.active{style: ""}
+          %img{src: "http://foundation.zurb.com/docs/assets/img/examples/launch-orbit.jpg"}
+          .orbit-caption
+            Caption Three. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      %a.orbit-prev{href: "#"}
+        %span
+      %a.orbit-next{href: "#"}
+        %span
+      .orbit-timer
+        %span
+        .orbit-progress{style: "overflow: hidden; width: 53.6%;"}
+      .orbit-slide-number
+        %span 3
+        of
+        %span 3
+      .orbit-bullets-container
+        %ol.orbit-bullets
+          %li{"data-orbit-slide" => "0"}
+          %li{"data-orbit-slide" => "1"}
+          %li.active{"data-orbit-slide" => "2"}
+%hr
+%h4#pagination Pagination
+%ul.pagination
+  %li.arrow.unavailable
+    %a{href: ""} «
+  %li.current
+    %a{href: ""} 1
+  %li
+    %a{href: ""} 2
+  %li
+    %a{href: ""} 3
+  %li
+    %a{href: ""} 4
+  %li.unavailable
+    %a{href: ""} …
+  %li
+    %a{href: ""} 12
+  %li
+    %a{href: ""} 13
+  %li.arrow
+    %a{href: ""} »
+%hr
+%h4#panels Panels
+.row
+  .large-6.columns
+    .panel
+      %h5 This is a regular panel.
+      %p It has an easy to override visual style, and is appropriately subdued.
+  .large-6.columns
+    .panel.callout.radius
+      %h5 This is a callout panel with radiused edges.
+      %p It's a little ostentatious, but useful for important content.
+  %p
+%p
+%h4#pricing-tables Pricing Tables
+.row
+  .large-4.columns
+    %ul.pricing-table
+      %li.title Standard
+      %li.price $99.99
+      %li.description An awesome description
+      %li.bullet-item 1 Database
+      %li.bullet-item 5GB Storage
+      %li.bullet-item 20 Users
+      %li.cta-button
+        %a.button{href: "#"} Buy Now
+%hr
+%h4#progress-bars Progress Bars
+.progress.large-6
+  %span.meter{style: "width: 40%"}
+.radius.progress.success.large-8
+  %span.meter{style: "width: 80%"}
+.nice.round.progress.alert.large-10
+  %span.meter{style: "width: 30%"}
+.nice.secondary.progress
+  %span.meter{style: "width: 50%"}
+%hr
+%h4#reveal Reveal
+%p
+  %a.radius.button{"data-reveal-id" => "firstModal", href: "#"} Example Modal…
+  %a.radius.button{"data-reveal-id" => "videoModal", href: "#"} Example Modal w/Video…
+/ Reveal Modals begin
+#firstModal.reveal-modal{"data-reveal" => ""}
+  %h2 This is a modal.
+  %p
+    Reveal makes these very easy to summon and dismiss. The close button is simply an anchor with a unicode character icon and a class of
+    = succeed "." do
+      %code close-reveal-modal
+  %p Finally, if your modal summons another Reveal modal, the plugin will handle that for you gracefully.
+  %p
+    %a.secondary.button{"data-reveal-id" => "secondModal", href: "#"} Second Modal...
+  %a.close-reveal-modal ×
+#secondModal.reveal-modal{"data-reveal" => ""}
+  %h2 This is a second modal.
+  %p See? It just slides into place after the other first modal. Very handy when you need subsequent dialogs, or when a modal option impacts or requires another decision.
+  %a.close-reveal-modal ×
+#videoModal.reveal-modal.large{"data-reveal" => ""}
+  %h2 This modal has video
+  .flex-video
+    %iframe{allowfullscreen: "", frameborder: "0", height: "315", src: "//www.youtube.com/embed/aiBt44rrslw", width: "420"}
+  %a.close-reveal-modal ×
+/ Reveal Modals end
+%hr
+%h4#sliders Sliders
+.range-slider{"data-slider" => "50"}
+  %span.range-slider-handle{style: "-webkit-transform: translateX(452px);"}
+  %span.range-slider-active-segment{style: "width: 50%;"}
+  %input{type: "hidden", value: "50"}
+.range-slider.radius{"data-slider" => "50"}
+  %span.range-slider-handle{style: "-webkit-transform: translateX(452px);"}
+  %span.range-slider-active-segment{style: "width: 50%;"}
+  %input{type: "hidden", value: "50"}
+.range-slider.round{"data-slider" => "50"}
+  %span.range-slider-handle{style: "-webkit-transform: translateX(452px);"}
+  %span.range-slider-active-segment{style: "width: 50%;"}
+  %input{type: "hidden", value: "50"}
+.range-slider{"data-options" => "step: 20;", "data-slider" => "40"}
+  %span.range-slider-handle{style: "-webkit-transform: translateX(361.40000000000003px);"}
+  %span.range-slider-active-segment{style: "width: 40%;"}
+  %input{type: "hidden", value: "40"}
+%hr
+%h4#accordion Accordion
+%dl.accordion{"data-accordion" => ""}
+  %dd
+    %a{href: "#panel1"} Accordion 1
+    #panel1.content.active
+      %dl.tabs{"data-tab" => ""}
+        %dd.active
+          %a{href: "#panel1-1"} Tab 1
+        %dd
+          %a{href: "#panel1-2"} Tab 2
+        %dd
+          %a{href: "#panel1-3"} Tab 3
+        %dd
+          %a{href: "#panel1-4"} Tab 4
+      .tabs-content
+        #panel1-1.content.active
+          %p First panel content goes here...
+        #panel1-2.content
+          %p Second panel content goes here...
+        #panel1-3.content
+          %p Third panel content goes here...
+        #panel1-4.content
+          %p Fourth panel content goes here...
+  %dd
+    %a{href: "#panel2"} Accordion 2
+    #panel2.content
+      Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  %dd
+    %a{href: "#panel3"} Accordion 3
+    #panel3.content
+      Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+%hr
+%h4#tabs Tabs
+%dl.tabs{"data-tab" => ""}
+  %dd.active
+    %a{href: "#panel2-1"} Tab 1
+  %dd
+    %a{href: "#panel2-2"} Tab 2
+  %dd
+    %a{href: "#panel2-3"} Tab 3
+  %dd
+    %a{href: "#panel2-4"} Tab 4
+.tabs-content
+  #panel2-1.content.active
+    %p First panel content goes here...
+  #panel2-2.content
+    %p Second panel content goes here...
+  #panel2-3.content
+    %p Third panel content goes here...
+  #panel2-4.content
+    %p Fourth panel content goes here...
+%dl.tabs.vertical{"data-tab" => ""}
+  %dd.active
+    %a{href: "#panel1a"} Tab 1
+  %dd
+    %a{href: "#panel2a"} Tab 2
+  %dd
+    %a{href: "#panel3a"} Tab 3
+  %dd
+    %a{href: "#panel4a"} Tab 4
+.tabs-content.vertical
+  #panel1a.content.active
+    %p Panel 1 content goes here.
+  #panel2a.content
+    %p Panel 2 content goes here.
+  #panel3a.content
+    %p Panel 3 content goes here.
+  #panel4a.content
+    %p Panel 4 content goes here.
+%hr
+%h4#side-nav Side Nav
+.row
+  .large-4.columns.end
+    %ul.side-nav
+      %li.active
+        %a{href: "#"} Link 1
+      %li
+        %a{href: "#"} Link 2
+      %li.divider
+      %li
+        %a{href: "#"} Link 3
+      %li
+        %a{href: "#"} Link 4
+%hr
+%h4#sub-nav Sub Nav
+%dl.sub-nav
+  %dt Filter:
+  %dd.active
+    %a{href: "#"} All
+  %dd
+    %a{href: "#"} Active
+  %dd
+    %a{href: "#"} Pending
+  %dd
+    %a{href: "#"} Suspended
+%hr
+%h4#tables Tables
+%table
+  %thead
+    %tr
+      %th{width: "200"} Table Header
+      %th Table Header
+      %th{width: "150"} Table Header
+      %th{width: "150"} Table Header
+  %tbody
+    %tr
+      %td Content Goes Here
+      %td This is longer content Donec id elit non mi porta gravida at eget metus.
+      %td Content Goes Here
+      %td Content Goes Here
+    %tr
+      %td Content Goes Here
+      %td This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.
+      %td Content Goes Here
+      %td Content Goes Here
+    %tr
+      %td Content Goes Here
+      %td This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.
+      %td Content Goes Here
+      %td Content Goes Here
+%hr
+%h4#thumbnails Thumbnails
+%p
+  %img.th{src: "http://foundation.zurb.com/docs/assets/img/examples/earth-th-sm.jpg"}
+  %img.th{src: "http://foundation.zurb.com/docs/assets/img/examples/space-th-sm.jpg"}
+%hr
+%h4#tooltips Tooltips
+%p
+  The tooltips can be positioned on the
+  = succeed "," do
+    %span.has-tip{"data-selector" => "tooltip-hufy53n70", "data-tooltip" => "", "data-width" => "210"} "tip-bottom"
+  = succeed "," do
+    %span.has-tip.tip-top.noradius{"data-selector" => "tooltip-hufy53n71", "data-tooltip" => "", "data-width" => "210"} "tip-top" (hehe)
+  = succeed "," do
+    %span.has-tip.tip-left{"data-tooltip" => "left", "data-width" => "90"} "tip-left"
+  %span.has-tip.tip-right{"data-tooltip" => "right", "data-width" => "120"} "tip-right"
+  of the target element by adding the appropriate class to them. You can even add your own custom class to style each tip differently. On a small device, the tooltips are full width and bottom aligned.
+%hr
+%h4#top-bar Top Bar
+%nav.top-bar{"data-topbar" => ""}
+  %ul.title-area
+    / Title Area
+    %li.name
+      %h1
+        %a{href: "#"}
+          Top Bar Title
+    %li.toggle-topbar.menu-icon
+      %a{href: "#"}
+        %span menu
+  %section.top-bar-section
+    / Right Nav Section
+    %ul.right
+      %li.divider
+      %li.has-dropdown.not-click
+        %a{href: "#"} Main Item 1
+        %ul.dropdown
+          %li.title.back.js-generated
+            %h5
+              %a{href: "javascript:void(0)"} Back
+          %li
+            %label Section Name
+          %li.has-dropdown.not-click
+            %a{href: "#"} Has Dropdown, Level 1
+            %ul.dropdown
+              %li.title.back.js-generated
+                %h5
+                  %a{href: "javascript:void(0)"} Back
+              %li
+                %a{href: "#"} Dropdown Options
+              %li
+                %a{href: "#"} Dropdown Options
+              %li
+                %a{href: "#"} Level 2
+              %li
+                %a{href: "#"} Subdropdown Option
+              %li
+                %a{href: "#"} Subdropdown Option
+              %li
+                %a{href: "#"} Subdropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li.divider
+          %li
+            %label Section Name
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li.divider
+          %li
+            %a{href: "#"} See all →
+      %li.divider
+      %li.has-dropdown.not-click
+        %a{href: "#"} Main Item 2
+        %ul.dropdown
+          %li.title.back.js-generated
+            %h5
+              %a{href: "javascript:void(0)"} Back
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li.divider
+          %li
+            %a{href: "#"} See all →
+/ End Top Bar
+%hr
+%h4#type Type
+%p
+%h1 h1. This is a very large header.
+%p
+%p
+%h2 h2. This is a large header.
+%p
+%p
+%h3 h3. This is a medium header.
+%p
+%p
+%h4 h4. This is a moderate header.
+%p
+%p
+%h5 h5. This is a small header.
+%p
+%h6 h6. This is a tiny header.
+%p
+  %br/
+%p
+%h1.subheader h1.subheader
+%p
+%p
+%h2.subheader h2.subheader
+%p
+%p
+%h3.subheader h3.subheader
+%p
+%p
+%h4.subheader h4.subheader
+%p
+%p
+%h5.subheader h5.subheader
+%p
+%h6.subheader h6.subheader
+%hr
+%p
+%dt Definition List
+%p
+%p
+%h5 Definition lists are great for small block of copy that describe the header
+%p
+%p
+%dl
+  %p
+  %p
+  %dt
+    Lower cost
+  %dd
+    The new version of this product costs significantly less than the
+    previous one!
+    %p
+    %p
+  %dt
+    Easier to use
+  %dd
+    We've changed the product so that it's much easier to use!
+    %p
+    %p
+  %dt
+    Safe for kids
+  %dd
+    You can leave your kids alone in a room with this product and
+    they won't get hurt (not a guarantee).
+%p
+%hr
+%p
+%h5 Un-ordered lists are great for making quick outlines bulleted.
+%p
+%ul.disc
+  %li List item with a much longer description or more content.
+  %li List item
+  %li
+    List item
+    %ul
+      %li Nested List Item
+      %li Nested List Item
+      %li Nested List Item
+  %li List item
+  %li List item
+  %li List item
+%p
+%h5 Ordered lists are great for lists that need order, duh.
+%p
+%ol
+  %li List Item 1
+  %li List Item 2
+  %li List Item 3
+%p
+  %br/
+%p
+%h5 Blockquote
+%p
+%blockquote
+  I do not fear computers. I fear the lack of them. Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur.
+  %cite Isaac Asimov
+%p
+  %br/
+%p
+%h5 Vcard
+%p
+%ul.vcard
+  %li.fn Gaius Baltar
+  %li.street-address 123 Colonial Ave.
+  %li.locality Caprica City
+  %li
+    %span.state> Caprica
+    ,
+    %span.zip 12345
+  %li.email
+    %a{href: "#"} g.baltar@example.com
+%hr
+%h4#visibility-classes Visibility Classes
+%h5#screen-size-visibility-control-show- Screen Size Visibility Control (Show)
+%p The following text should describe the screen size you're using:
+%p.panel
+  %strong.show-for-small You are on a small screen.
+  %strong.show-for-medium You are on a medium screen.
+  %strong.show-for-medium-up You are on a medium, large or xlarge screen.
+  %strong.show-for-medium-down You are on a medium or small screen.
+  %strong.show-for-large You are on a large screen.
+  %strong.show-for-large-up You are on a large or xlarge screen.
+  %strong.show-for-large-down You are on a large, medium or small screen.
+  %strong.show-for-xlarge You are on a xlarge screen.
+%h5#screen-size-visibility-control-hide- Screen Size Visibility Control (Hide)
+%p The following text should describe the screen size you aren't using:
+%p.panel
+  %strong.hide-for-small
+    You are
+    %em not
+    on a small screen.
+  %strong.hide-for-medium
+    You are
+    %em not
+    on a medium screen.
+  %strong.hide-for-medium-up
+    You are
+    %em not
+    on a medium, large or xlarge screen.
+  %strong.hide-for-medium-down
+    You are
+    %em not
+    on a medium or small screen.
+  %strong.hide-for-large
+    You are
+    %em not
+    on a large screen.
+  %strong.hide-for-large-up
+    You are
+    %em not
+    on a large or xlarge screen.
+  %strong.hide-for-large-down
+    You are
+    %em not
+    on a large, medium or small screen.
+  %strong.hide-for-xlarge
+    You are
+    %em not
+    on a xlarge screen.
+%h5#orientation-detection Orientation Detection
+%p The following text should describe the device orientation you're using:
+%p.panel
+  %strong.show-for-landscape You are in landscape orientation.
+  %strong.show-for-portrait You are in portrait orientation.
+%h5#touch-detection Touch Detection
+%p The following text should describe if you're using a touch device:
+%p.panel
+  %strong.show-for-touch You are on a touch-enabled device.
+  %strong.hide-for-touch You are not on a touch-enabled device.
