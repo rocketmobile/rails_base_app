@@ -1,0 +1,13 @@
+%h4#tooltips Tooltips (JS)
+// Include foundation/foundation.tooltip in your JavaScript manifest
+%p
+  The tooltips can be positioned on the
+  = succeed "," do
+    %span.has-tip{"data-selector" => "tooltip-hufy53n70", "data-tooltip" => "", "data-width" => "210"} "tip-bottom"
+  = succeed "," do
+    %span.has-tip.tip-top.noradius{"data-selector" => "tooltip-hufy53n71", "data-tooltip" => "", "data-width" => "210"} "tip-top"
+  = succeed "," do
+    %span.has-tip.tip-left{"data-tooltip" => "left", "data-width" => "90"} "tip-left"
+  %span.has-tip.tip-right{"data-tooltip" => "right", "data-width" => "120"} "tip-right"
+  of the target element by adding the appropriate class to them. You can even add your own custom class to style each tip differently. On a small device, the tooltips are full width and bottom aligned.
+%hr

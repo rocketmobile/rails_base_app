@@ -1,0 +1,39 @@
+%h4#tabs Tabs (JS)
+// Include foundation/foundation.tabs in your JavaScript manifest
+%dl.tabs{"data-tab" => ""}
+  %dd.active
+    %a{href: "#panel2-1"} Tab 1
+  %dd
+    %a{href: "#panel2-2"} Tab 2
+  %dd
+    %a{href: "#panel2-3"} Tab 3
+  %dd
+    %a{href: "#panel2-4"} Tab 4
+.tabs-content
+  #panel2-1.content.active
+    %p First panel content goes here...
+  #panel2-2.content
+    %p Second panel content goes here...
+  #panel2-3.content
+    %p Third panel content goes here...
+  #panel2-4.content
+    %p Fourth panel content goes here...
+%dl.tabs.vertical{"data-tab" => ""}
+  %dd.active
+    %a{href: "#panel1a"} Tab 1
+  %dd
+    %a{href: "#panel2a"} Tab 2
+  %dd
+    %a{href: "#panel3a"} Tab 3
+  %dd
+    %a{href: "#panel4a"} Tab 4
+.tabs-content.vertical
+  #panel1a.content.active
+    %p Panel 1 content goes here.
+  #panel2a.content
+    %p Panel 2 content goes here.
+  #panel3a.content
+    %p Panel 3 content goes here.
+  #panel4a.content
+    %p Panel 4 content goes here.
+%hr

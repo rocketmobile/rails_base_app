@@ -1,0 +1,77 @@
+%h4#top-bar Top Bar
+// Include foundation/foundation.topbar in your JavaScript manifest
+// There are many ways to configure the top bar. See this for examples: http://foundation.zurb.com/docs/components/topbar.html
+%nav.top-bar{"data-topbar" => ""}
+  %ul.title-area
+    / Title Area
+    %li.name
+      %h1
+        %a{href: "#"}
+          Top Bar Title
+    %li.toggle-topbar.menu-icon
+      %a{href: "#"}
+        %span menu
+  %section.top-bar-section
+    / Right Nav Section
+    %ul.right
+      %li.divider
+      %li.has-dropdown.not-click
+        %a{href: "#"} Main Item 1
+        %ul.dropdown
+          %li.title.back.js-generated
+            %h5
+              %a{href: "javascript:void(0)"} Back
+          %li
+            %label Section Name
+          %li.has-dropdown.not-click
+            %a{href: "#"} Has Dropdown, Level 1
+            %ul.dropdown
+              %li.title.back.js-generated
+                %h5
+                  %a{href: "javascript:void(0)"} Back
+              %li
+                %a{href: "#"} Dropdown Options
+              %li
+                %a{href: "#"} Dropdown Options
+              %li
+                %a{href: "#"} Level 2
+              %li
+                %a{href: "#"} Subdropdown Option
+              %li
+                %a{href: "#"} Subdropdown Option
+              %li
+                %a{href: "#"} Subdropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li.divider
+          %li
+            %label Section Name
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li.divider
+          %li
+            %a{href: "#"} See all →
+      %li.divider
+      %li.has-dropdown.not-click
+        %a{href: "#"} Main Item 2
+        %ul.dropdown
+          %li.title.back.js-generated
+            %h5
+              %a{href: "javascript:void(0)"} Back
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li
+            %a{href: "#"} Dropdown Option
+          %li.divider
+          %li
+            %a{href: "#"} See all →
+/ End Top Bar
+%hr

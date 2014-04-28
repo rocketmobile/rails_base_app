@@ -1,0 +1,22 @@
+%h4#dropdowns Dropdowns (JS)
+// Include foundation/foundation.dropdown in your javascript manifest.
+%p
+  %a.button{"data-dropdown" => "tinyDrop", href: "#"} Link Dropdown »
+  %a.button{"data-dropdown" => "contentDrop", href: "#"} Content Dropdown »
+  / Dropdowns
+%ul#tinyDrop.f-dropdown{"data-dropdown-content" => ""}
+  %li
+    %a{href: "#"} This is a link
+  %li
+    %a{href: "#"} This is another
+  %li
+    %a{href: "#"} Yet another
+#contentDrop.f-dropdown.content.medium{"data-dropdown-content" => ""}
+  %h4 Title
+  %p
+    Some text that people will think is awesome! Some text that people will
+    think is awesome! Some text that people will think is awesome!
+  %img{src: "http://foundation.zurb.com/docs/assets/img/examples/launch.jpg"}
+  %p Launching a Discovery Mission
+  %a.button{href: "#"} Button
+%hr
