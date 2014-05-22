@@ -41,7 +41,7 @@ RailsBaseApp::Application.configure do
 
   # Inject scripts in responses to connect to an optional guard process
   # which will result in page reloads automatically upon view/markup changes
-  config.middleware.insert_before Rack::Lock, Rack::LiveReload
+  config.middleware.insert_before ::Rack::Runtime, Rack::LiveReload
 
   # Disable timeout logging
   Rack::Timeout.unregister_state_change_observer(:logger)
