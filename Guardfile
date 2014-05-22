@@ -25,3 +25,8 @@ guard :bundler do
   # Uncomment next line if Gemfile contain `gemspec' command
   # watch(/^.+\.gemspec/)
 end
+
+guard 'migrate' do
+  watch(%r{^db/migrate/(\d+).+\.rb})
+end
+

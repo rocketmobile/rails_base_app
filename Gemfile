@@ -68,6 +68,7 @@ group :development do
   gem 'guard',                  '>= 0.6.2'
   gem 'guard-bundler',          '>= 0.1.3'
   gem 'guard-livereload',       require: false
+  gem 'guard-migrate',          '~> 1.0.4'
   gem 'guard-rails',            '>= 0.0.3'
   gem 'guard-sass',             require: false
   gem 'html2haml'
