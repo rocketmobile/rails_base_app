@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.0.0'
-gem 'rails',                    '~> 4.0.4'
+gem 'rails',                    '~> 4.1.1'
 
 # web server
 gem 'thin',                     '~> 1.6.1'
@@ -68,13 +68,14 @@ group :development do
   gem 'guard',                  '>= 0.6.2'
   gem 'guard-bundler',          '>= 0.1.3'
   gem 'guard-livereload',       require: false
-  gem 'guard-migrate',          '~> 1.0.4'
-  gem 'guard-rails',            '>= 0.0.3'
+  gem 'guard-migrate'
   gem 'guard-sass',             require: false
   gem 'html2haml'
   gem 'mailcatcher'
   gem 'quiet_assets'
   gem 'rack-livereload'
+  gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'sqlite3'
   gem 'travis'
 end
@@ -88,7 +89,6 @@ group :development, :test do
   gem 'fuubar'
   gem 'guard-rspec',            '>= 0.4.3'
   gem 'rspec-rails',            '>= 2.14.0'
-  gem 'spork-rails',            '~> 4.0.0'
 
   # # If app has significant JS functionality,
   # # use capybara-webkit to test headlessly
