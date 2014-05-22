@@ -61,6 +61,7 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 # Increase log level to speed tests
 Rails.logger.level = 3
+
 if defined?(Spring)
   Spring.after_fork do
     # running in CI env, calculate test coverage
@@ -85,5 +86,11 @@ if defined?(Spring)
       # c.order = "rand:60468"
       c.order = "random:#{rand(100000)}"
     end
+  end
+else
+  unless ['CI'] == 'true'
+    # calculate coverage locally
+    require 'simplecov'
+    SimpleCov.start 'rails'
   end
 end
