@@ -46,7 +46,7 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
 
 #### Production
   * Secure signed assets with a unique encryption key
-    * run `heroku config:add SECRET_KEY_BASE=`rake secret`
+    * run `` heroku config:add SECRET_KEY_BASE=`rake secret` ``
   * Avoid server idling using New Relic Availability Monitoring
     * `heroku addons:add newrelic`
     * `heroku addons:open newrelic` to set up availability monitoring (Settings » Availability monitoring)
