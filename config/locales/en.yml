@@ -3,3 +3,10 @@
 
 en:
   hello: "Hello world"
+  activemodel:
+    errors:
+      models:
+        message:
+          attributes:
+            to:
+              invalid: "must be a 10 digit phone number"

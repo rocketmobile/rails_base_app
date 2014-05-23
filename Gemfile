@@ -53,6 +53,7 @@ gem 'faker',                    '~> 1.3.0'
 gem 'honeybadger',              '~> 1.10'
 gem 'newrelic_rpm',             '~> 3.7'
 gem 'pg',                       '~> 0.17'
+gem 'twilio-ruby',              '~> 3.11'
 
 # # Workers
 # # Process long jobs asyncronously from the rails web process.
@@ -80,7 +81,8 @@ group :development do
   gem 'travis'
 end
 
-gem 'debugger', groups: [:development, :test]
+gem 'debugger',     groups: [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
   gem 'coveralls',              require: false
