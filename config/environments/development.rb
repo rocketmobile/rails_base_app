@@ -46,11 +46,6 @@ RailsBaseApp::Application.configure do
   # Disable timeout logging
   Rack::Timeout.unregister_state_change_observer(:logger)
 
-  # Enable auto evalution of unrecognized commands
-  # We explicitly enable this for easier debugging in the console (using `rails console --debug`)
-  # Default for this property is true for `Rails s --debug`, but false for `rails console --debug`
-  Debugger.settings[:autoeval] = true
-
   # Configure generators values for scaffolding, etc
   config.generators do |g|
     g.stylesheets   false

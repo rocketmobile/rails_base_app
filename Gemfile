@@ -80,7 +80,9 @@ group :development do
   gem 'travis'
 end
 
-gem 'debugger', groups: [:development, :test]
+gem 'binding_of_caller',  groups: [:development, :test]
+gem 'pry-rails',          groups: [:development, :test]
+gem 'pry-nav',            groups: [:development, :test]
 
 group :development, :test do
   gem 'coveralls',              require: false

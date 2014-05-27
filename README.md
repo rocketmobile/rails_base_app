@@ -72,12 +72,17 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
 
 
 #### Development
-  * Tests will runy quickly using spring
-    * A first call to `rspec` will load spring binstub
+  * Tests will run quickly using spring
+    * A first call to `bin/rspec` will load spring binstub
     * Subsequent calls will not suffer the app startup penalty
   * View detailed test results and coverage in your browser
     * Open `/coverage/index.html` in a browser to see test coverage information
     * Open `/coverage/results.html` in a browser to see real-time test progress
+  * Debug with the ease of [debugger](https://github.com/cldwalker/debugger) and the power of [pry](http://pryrepl.org/)
+    * Make a call to `debugger` anywhere in the application
+    * The running process (e.g. foreman, rails console, rails server, rspec, or even spring) will hault with a `pry` prompt
+    * Evaluate any ruby or execute any `pry` commands in the context of your `debugger` method
+    * Type `c` and press enter to continue normal execution or your test/request/etc
 
 ## Feature Examples and Guides
 Some feature examples exist on [branches](https://github.com/rocketmobile/rails_base_app/branches) that are rebased to the master branch.
