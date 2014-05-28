@@ -1,6 +1,6 @@
 .row
   .small-6.columns
-    %h1= @<%= singular_table_name %>
+    %h1= @<%= singular_table_name %>.to_s
   .small-6.columns
     .right
       = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'button'
