@@ -3,3 +3,13 @@
 
 en:
   hello: "Hello world"
+
+  actioncontroller:
+    # override these default messages by defining
+    # 'resources.action.success' (e.g. 'users.create.success')
+    create:
+      success: "%{resource} was successfully updated."
+    update:
+      success: "%{resource} was successfully updated."
+    destroy:
+      success: "%{resource} was successfully removed."
