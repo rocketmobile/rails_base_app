@@ -1,15 +1,11 @@
 class Api::V1::MomentsController <  Api::V1::BaseController
-  before_action :set_moment, only: [:show, :edit, :update, :destroy]
+  before_action :set_moment, only: [:show, :destroy]
 
   def index
     @moments = Moment.all
   end
 
   def show
-  end
-
-  def new
-    @moment = Moment.new
   end
 
   def create

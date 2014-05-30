@@ -1,18 +1,11 @@
 class Api::V1::LapsesController < Api::V1::BaseController
-  before_action :set_lapse, only: [:show, :edit, :update, :destroy]
+  before_action :set_lapse, only: [:show, :update, :destroy]
 
   def index
     @lapses = Lapse.all
   end
 
   def show
-  end
-
-  def new
-    @lapse = Lapse.new
-  end
-
-  def edit
   end
 
   def create
