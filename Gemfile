@@ -44,7 +44,7 @@ gem 'will_paginate',            '~> 3.0.5'
 gem 'delayed_paperclip',        '~> 2.6.1'                        # asyncronous image processing
 gem 'devise',                   '~> 3.2.2'
 gem 'hashie',                   '~> 2.0.5'
-gem 'paperclip',                '~> 3.5.0'                        # easy object attachment with s3 storage
+gem 'paperclip',                :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'ruby-progressbar',         '~> 1.4.2'
 
 # operations
@@ -61,6 +61,9 @@ gem 'pg',                       '~> 0.17'
 # gem 'sidekiq',                  '~> 2.17'
 # gem 'sidekiq-failures',         '~> 0.3'
 # gem 'sinatra',                  '~> 1.4.4'
+
+# API
+gem "apipie-rails",             "~> 0.0.24"
 
 group :development do
   gem 'awesome_print'

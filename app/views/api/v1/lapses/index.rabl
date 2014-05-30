@@ -1,0 +1,2 @@
+collection @lapses
+attributes :id

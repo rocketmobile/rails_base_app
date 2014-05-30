@@ -1,6 +1,17 @@
 require 'constraints/production_path_constraint'
+require 'constraints/api_constraints'
 
 RailsBaseApp::Application.routes.draw do
+
+  # api*
+  constraints subdomain: /\Aapi/ do
+    # apipie
+    scope module: "api/v1", constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :lapses, shallow: true do
+        resources :moments, only: [:index, :show, :new, :create, :destroy]
+      end
+    end
+  end
 
   root              to: 'pages#home'
   get   'timeout',  to: 'pages#timeout'
@@ -8,5 +19,4 @@ RailsBaseApp::Application.routes.draw do
   # catch rest of production paths with 404 page
   match '*path',    to: 'pages#not_found', via: [:get, :post],
                                         constraints: ProductionPathConstraint.new
-
 end

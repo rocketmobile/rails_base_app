@@ -1,0 +1,2 @@
+collection @moments
+attributes :id
