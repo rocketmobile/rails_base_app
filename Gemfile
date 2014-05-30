@@ -44,7 +44,7 @@ gem 'will_paginate',            '~> 3.0.5'
 gem 'delayed_paperclip',        '~> 2.6.1'                        # asyncronous image processing
 gem 'devise',                   '~> 3.2.2'
 gem 'hashie',                   '~> 2.0.5'
-gem 'paperclip',                :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'paperclip',                '~> 4.1.1'
 gem 'ruby-progressbar',         '~> 1.4.2'
 
 # operations
