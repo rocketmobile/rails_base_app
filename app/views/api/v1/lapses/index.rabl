@@ -1,2 +1,2 @@
 collection @lapses
-attributes :id
+attributes :id, :name

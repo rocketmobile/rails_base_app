@@ -22,6 +22,8 @@ Capybara.javascript_driver = :slenium
 Capybara.default_wait_time = 10
 Capybara.server_port = 3121
 
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| load f}
+
 RSpec.configure do |c|
   c.filter_run :only => true
   #when paired with an inclusion filter like ":focus => true", 'run_all_when_everything_filtered'

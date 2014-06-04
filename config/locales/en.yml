@@ -2,7 +2,18 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  api:
+    errors:
+      bad_request:      "The data given to this server does not meet our criteria."
+      conflict:         "The request conflicts with an existing resource."
+      forbidden:        "The action you requested was forbidden."
+      internal_error:   "Something has gone wrong."
+      invalid_resource: "The current resource was deemed invalid."
+      invalid_version:  "This action is not available in the given version of the api."
+      not_found:        "The requested resource could not be found."
+      throttled:        "You have gone over your allotted amount of requests and have been throttled."
+      timeout:          "A timeout has occurred."
+      unauthenticated:  "This action requires authentication to continue."
 
   actioncontroller:
     # override these default messages by defining

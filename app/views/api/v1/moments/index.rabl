@@ -1,2 +1,2 @@
 collection @moments
-attributes :id
+attributes :id, :active

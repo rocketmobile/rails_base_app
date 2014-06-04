@@ -1,26 +1,29 @@
-class Api::V1::MomentsController <  Api::V1::BaseController
+class Api::V1::MomentsController <  Api::BaseController
   before_action :set_moment, only: [:show, :destroy]
+  before_action :current_lapse, only: [:create]
 
   def index
     @moments = Moment.all
   end
 
   def show
+    render 'api/v1/moments/show', status: 200
   end
 
   def create
     @moment = Moment.new(moment_params)
-
+    @moment.lapse = @lapse
     if @moment.save
-      redirect_to @moment, notice: success_message
+      render 'api/v1/moments/show', status: 201
     else
-      render :new
+      @resourceful_errors = @moment.errors.full_messages
+      render 'api/errors/resourceful_error', status: 422
     end
   end
 
   def destroy
     @moment.destroy
-    redirect_to moments_url, notice: success_message
+    render json: { message: success_message }, status: 200
   end
 
   private
@@ -28,7 +31,11 @@ class Api::V1::MomentsController <  Api::V1::BaseController
       @moment = Moment.find(params[:id])
     end
 
+    def current_lapse
+      @lapse = Lapse.find(params[:lapse_id])
+    end
+
     def moment_params
-      params.require(:moment).permit(:lapse_id, :image)
+      { active: params[:active] }
     end
 end

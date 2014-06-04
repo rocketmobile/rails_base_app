@@ -1,4 +1,4 @@
-class Api::V1::LapsesController < Api::V1::BaseController
+class Api::V1::LapsesController < Api::BaseController
   before_action :set_lapse, only: [:show, :update, :destroy]
 
   def index
@@ -6,29 +6,31 @@ class Api::V1::LapsesController < Api::V1::BaseController
   end
 
   def show
+    render 'api/v1/lapses/show', status: 200
   end
 
   def create
     @lapse = Lapse.new(lapse_params)
-
     if @lapse.save
-      redirect_to @lapse, notice: success_message
+      render 'api/v1/lapses/show', status: 201
     else
-      render :new
+      @resourceful_errors = @lapse.errors.full_messages
+      render 'api/errors/resourceful_error', status: 422
     end
   end
 
   def update
     if @lapse.update(lapse_params)
-      redirect_to @lapse, notice: success_message
+      render 'api/v1/lapses/show', status: 200
     else
-      render :edit
+      @resourceful_errors = @lapse.errors.full_messages
+      render 'api/errors/resourceful_error', status: 422
     end
   end
 
   def destroy
     @lapse.destroy
-    redirect_to lapses_url, notice: success_message
+    render json: { message: success_message }, status: 200
   end
 
   private
@@ -37,6 +39,8 @@ class Api::V1::LapsesController < Api::V1::BaseController
     end
 
     def lapse_params
-      params.require(:lapse).permit(:name)
+      {
+        name: params[:name]
+      }
     end
 end

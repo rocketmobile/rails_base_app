@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include ResourcefulMessages
-  protect_from_forgery
+  protect_from_forgery with: :exception
 
   if Rails.application.config.consider_all_requests_local == false
     # note: these are rescued from bottom (most specific) to top (least)

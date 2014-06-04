@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :moment do
-    lapse_id 1
+    active true
+    lapse
   end
 end
