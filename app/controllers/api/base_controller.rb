@@ -1,7 +1,6 @@
 class Api::BaseController < ApplicationController
   protect_from_forgery with: :null_session
   layout false
-  respond_to :json
 
   rescue_from Exception, with: :internal_error
   rescue_from Timeout::Error, with: :timeout
@@ -19,6 +18,7 @@ class Api::BaseController < ApplicationController
       return render "api/errors/forbidden", status: 403
     end
     def internal_error(exception)
+      debugger
       return render "api/errors/internal_error", status: 500
     end
     def invalid_resource

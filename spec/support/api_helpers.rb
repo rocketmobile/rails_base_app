@@ -1,5 +1,7 @@
 module ApiHelpers
   def json_response
-    JSON.parse(response.body)
+    body = JSON.parse(response.body)
+    body = body.with_indifferent_access if body.is_a?(Hash)
+    body
   end
 end

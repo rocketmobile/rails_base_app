@@ -1,2 +1,2 @@
 object false
-node(:error) { @resourceful_errors }
+node(:errors) { @resource.errors.map{ |attr, message| { message:  message } } }

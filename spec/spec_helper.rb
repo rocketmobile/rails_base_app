@@ -56,6 +56,8 @@ RSpec.configure do |c|
   # ensure transactional rollback works with out of process `webkit-capybara`
   # note: required if using capybara-webkit with transactional fixtures
   # ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+
+  c.treat_symbols_as_metadata_keys_with_true_values = true
 end
 
 # Checks for pending migrations before tests are run.

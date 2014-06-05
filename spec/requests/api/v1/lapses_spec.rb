@@ -2,7 +2,7 @@ require 'spec_helper'
 include ApiHelpers
 
 describe "API::V1" do
-  before(:each) { host! "api.#{host}" }
+  before(:each) { host! "api.lvh.me" }
   let!(:lapse)  { create(:lapse) }
 
   describe "GET /lapses" do
@@ -76,14 +76,13 @@ describe "API::V1" do
         }
       })
     end
-    it "should return an error message when invalid" do
-      patch "/lapses/#{lapse.id}", {
-        name: ''
-      }.to_json, { 'Content-Type' => 'application/json' }
-      expect(response.code.to_i).to eq 422
-      expect(json_response).to eq({
-        "error" => ["Name can't be blank"]
-      })
+    context "with invalid parameters", :only do
+      let(:lapse_params) { {name: ''} }
+      it "should return an error message" do
+        patch lapse_path(lapse), lapse_params.to_json, { 'Content-Type' => 'application/json' }
+        expect(response.code.to_i).to eq 422
+        json_response[:errors].first[:message].should =~ /be blank/
+      end
     end
   end
 
