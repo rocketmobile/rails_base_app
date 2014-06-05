@@ -1,5 +1,5 @@
 # Rocket Mobile: Base Rails Application
-[![Build Status](https://secure.travis-ci.org/rocketmobile/rails_base_app.png)](http://travis-ci.org/rocketmobile/rails_base_app)
+[![Build Status](https://secure.travis-ci.org/rocketmobile/rails_base_app.png?branch=master)](https://travis-ci.org/rocketmobile/rails_base_app/branches)
 [![Coverage Status](https://coveralls.io/repos/rocketmobile/rails_base_app/badge.png)](https://coveralls.io/r/rocketmobile/rails_base_app)
 
 The base app is meant to give a common/recommended Rails app base configuration by:
