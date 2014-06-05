@@ -1,2 +1,2 @@
 object false
-node(:error) { I18n.t(:unauthenticated, scope: "api.errors") }
+node(:error) { t(:unauthenticated, scope: "api.errors") }

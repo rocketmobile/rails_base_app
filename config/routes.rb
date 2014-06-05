@@ -5,7 +5,6 @@ RailsBaseApp::Application.routes.draw do
 
   # api*
   constraints subdomain: /\Aapi/ do
-    # apipie
     scope module: "api/v1", constraints: ApiConstraints.new(version: 1, default: true) do
       resources :lapses, only: [:index, :show, :create, :update, :destroy], shallow: true do
         resources :moments, only: [:index, :show, :create, :destroy]

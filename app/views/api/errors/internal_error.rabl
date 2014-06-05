@@ -1,2 +1,2 @@
 object false
-node(:error) { I18n.t(:internal_error, scope: "api.errors") }
+node(:error) { t(:internal_error, scope: "api.errors") }

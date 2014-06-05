@@ -1,2 +1,2 @@
 object false
-node(:error) { I18n.t(:forbidden, scope: "api.errors") }
+node(:error) { t(:forbidden, scope: "api.errors") }

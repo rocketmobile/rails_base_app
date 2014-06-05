@@ -1,2 +1,2 @@
 object false
-node(:error) { I18n.t(:throttled, scope: "api.errors") }
+node(:error) { t(:throttled, scope: "api.errors") }

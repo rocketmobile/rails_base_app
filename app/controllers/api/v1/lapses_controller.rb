@@ -29,7 +29,7 @@ class Api::V1::LapsesController < Api::BaseController
   end
 
   def destroy
-    @lapse.destroy
+    @lapse.destroy!
     render json: { message: success_message }, status: 200
   end
 
@@ -39,8 +39,6 @@ class Api::V1::LapsesController < Api::BaseController
     end
 
     def lapse_params
-      {
-        name: params[:name]
-      }
+      params.permit(:name)
     end
 end

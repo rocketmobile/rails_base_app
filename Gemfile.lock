@@ -44,8 +44,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    apipie-rails (0.0.24)
-      rails (>= 3.0.10)
     arel (5.0.1.20140414130214)
     asset_sync (1.0.0)
       activemodel
@@ -421,7 +419,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  apipie-rails (~> 0.0.24)
   asset_sync (~> 1.0.0)
   awesome_print
   aws-sdk (~> 1.30.0)

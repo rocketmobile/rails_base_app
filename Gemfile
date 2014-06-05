@@ -62,9 +62,6 @@ gem 'pg',                       '~> 0.17'
 # gem 'sidekiq-failures',         '~> 0.3'
 # gem 'sinatra',                  '~> 1.4.4'
 
-# API
-gem "apipie-rails",             "~> 0.0.24"
-
 group :development do
   gem 'awesome_print'
   gem 'better_errors'

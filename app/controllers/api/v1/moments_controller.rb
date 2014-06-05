@@ -22,7 +22,7 @@ class Api::V1::MomentsController <  Api::BaseController
   end
 
   def destroy
-    @moment.destroy
+    @moment.destroy!
     render json: { message: success_message }, status: 200
   end
 
@@ -36,6 +36,6 @@ class Api::V1::MomentsController <  Api::BaseController
     end
 
     def moment_params
-      { active: params[:active] }
+      params.permit(:active)
     end
 end

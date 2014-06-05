@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
     def redirect_to_back(opts={})
       response_status_and_flash = opts.except(:or)
       url = :back if request.referrer.present?
