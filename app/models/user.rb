@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
                           encrypted_storage: true,
                           default_asset: 'anonymous_user.jpg'
 
+  validates_attachment_content_type :image, content_type: %w(image/jpeg image/jpg image/png)
+
   def to_s
     self.name || self.email
   end
