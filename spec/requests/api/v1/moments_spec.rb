@@ -12,7 +12,7 @@ describe "API::V1" do
       expect(json_response).to eq([{
         "moment" => {
           "id"      => moment.id,
-          "active"  => moment.active?
+          "active"  => moment.active
         }
       }])
     end
