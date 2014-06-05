@@ -10,9 +10,9 @@ describe "API::V1" do
       get lapse_moments_path(moment.lapse)
       expect(response.code.to_i).to eq 200
       expect(json_response).to eq([{
-        'moment' => {
-          'id'      => moment.id,
-          'active'  => moment.active?
+        "moment" => {
+          "id"      => moment.id,
+          "active"  => moment.active?
         }
       }])
     end
@@ -22,13 +22,20 @@ describe "API::V1" do
     it "should return a moment by id" do
       get moment_path(moment)
       expect(response.code.to_i).to eq 200
-      expect(json_response).to eq({ "moment"=>{"id"=>moment.id, 'active'  => moment.active} })
+      expect(json_response).to eq({
+        "moment" => {
+          "id"      => moment.id,
+          "active"  => moment.active
+        }
+      })
     end
 
     it "should return a 404 error if id is not found" do
       get moment_path(-1)
       expect(response.code.to_i).to eq 404
-      expect(json_response).to eq({ "error" => "The requested resource could not be found." })
+      expect(json_response).to eq({
+        "error" => "The requested resource could not be found."
+      })
     end
   end
 
@@ -37,19 +44,24 @@ describe "API::V1" do
       post "lapses/#{moment.lapse.id}/moments", {
         active: true
       }.to_json, { 'Content-Type' => 'application/json' }
-
       moment = Moment.last
-      expect(json_response).to eq({ "moment"=>{"id"=>moment.id, 'active'  => moment.active} })
       expect(response.code.to_i).to eq 201
+      expect(json_response).to eq({
+        "moment" => {
+          "id"      => moment.id,
+          "active"  => moment.active
+        }
+      })
     end
 
     it "should return an error message when invalid" do
       post "lapses/#{moment.lapse.id}/moments", {
         active: ''
       }.to_json, { 'Content-Type' => 'application/json' }
-
-      expect(json_response).to eq({"error"=>["Active can't be blank"]})
       expect(response.code.to_i).to eq 422
+      expect(json_response).to eq({
+        "error" => ["Active can't be blank"]
+      })
     end
   end
 
@@ -61,7 +73,9 @@ describe "API::V1" do
     it "should return a 404 error if id is not found" do
       delete moment_path(-1)
       expect(response.code.to_i).to eq 404
-      expect(json_response).to eq({ "error" => "The requested resource could not be found." })
+      expect(json_response).to eq({
+        "error" => "The requested resource could not be found."
+      })
     end
   end
 end
