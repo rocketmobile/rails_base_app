@@ -1,7 +1,6 @@
 class Api::BaseController < ApplicationController
   protect_from_forgery with: :null_session
   layout false
-  respond_to :json
 
   rescue_from Exception, with: :internal_error
   rescue_from Timeout::Error, with: :timeout

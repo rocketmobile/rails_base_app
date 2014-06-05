@@ -2,7 +2,7 @@ require 'spec_helper'
 include ApiHelpers
 
 describe "API::V1" do
-  before(:each) { host! "api.#{host}" }
+  before(:each) { host! "api.lvh.me" }
   let!(:lapse)  { create(:lapse) }
 
   describe "GET /lapses" do

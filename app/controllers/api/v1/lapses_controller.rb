@@ -6,13 +6,13 @@ class Api::V1::LapsesController < Api::BaseController
   end
 
   def show
-    render 'api/v1/lapses/show', status: 200
+    render :show, status: 200
   end
 
   def create
     @lapse = Lapse.new(lapse_params)
     if @lapse.save
-      render 'api/v1/lapses/show', status: 201
+      render :show, status: 201
     else
       @resourceful_errors = @lapse.errors.full_messages
       render 'api/errors/resourceful_error', status: 422
@@ -30,7 +30,7 @@ class Api::V1::LapsesController < Api::BaseController
 
   def destroy
     @lapse.destroy!
-    render json: { message: success_message }, status: 200
+    render :show, status: 200
   end
 
   private

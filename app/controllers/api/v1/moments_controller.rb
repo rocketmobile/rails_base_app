@@ -7,14 +7,14 @@ class Api::V1::MomentsController <  Api::BaseController
   end
 
   def show
-    render 'api/v1/moments/show', status: 200
+    render :show, status: 200
   end
 
   def create
     @moment = Moment.new(moment_params)
     @moment.lapse = @lapse
     if @moment.save
-      render 'api/v1/moments/show', status: 201
+      render :show, status: 201
     else
       @resourceful_errors = @moment.errors.full_messages
       render 'api/errors/resourceful_error', status: 422
@@ -23,7 +23,7 @@ class Api::V1::MomentsController <  Api::BaseController
 
   def destroy
     @moment.destroy!
-    render json: { message: success_message }, status: 200
+    render :show, status: 200
   end
 
   private

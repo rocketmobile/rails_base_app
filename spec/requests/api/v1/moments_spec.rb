@@ -1,14 +1,13 @@
 require 'spec_helper'
 include ApiHelpers
 
-describe "API::V1" do
-  before(:each) { host! "api.#{host}" }
+describe "API::V1::Moments" do
+  before(:each) { host! "api.lvh.me" }
   let!(:moment)  { create(:moment) }
 
   describe "GET /moments" do
-    it "should return an array of all moments" do
+    it "returns an array of all moments" do
       get lapse_moments_path(moment.lapse)
-      expect(response.code.to_i).to eq 200
       expect(json_response).to eq([{
         "moment" => {
           "id"      => moment.id,
@@ -16,66 +15,113 @@ describe "API::V1" do
         }
       }])
     end
+    it "returns a 200 status code" do
+      get lapse_moments_path(moment.lapse)
+      expect(response.code.to_i).to eq 200
+    end
   end
 
   describe "GET /moment/:id" do
-    it "should return a moment by id" do
-      get moment_path(moment)
-      expect(response.code.to_i).to eq 200
-      expect(json_response).to eq({
-        "moment" => {
-          "id"      => moment.id,
-          "active"  => moment.active
-        }
-      })
+    context "with a valid id" do
+      it "returns a moment by id" do
+        get moment_path(moment)
+        expect(json_response).to eq({
+          "moment" => {
+            "id"      => moment.id,
+            "active"  => moment.active
+          }
+        })
+      end
+      it "returns a 200 status code" do
+        get moment_path(moment)
+        expect(response.code.to_i).to eq 200
+      end
     end
 
-    it "should return a 404 error if id is not found" do
-      get moment_path(-1)
-      expect(response.code.to_i).to eq 404
-      expect(json_response).to eq({
-        "error" => "The requested resource could not be found."
-      })
+    context "with an invalid id" do
+      it "returns an error" do
+        get moment_path(-1)
+        expect(json_response).to eq({
+          "error" => "The requested resource could not be found."
+        })
+      end
+      it "returns a 404 status code" do
+        get moment_path(-1)
+        expect(response.code.to_i).to eq 404
+      end
     end
   end
 
   describe "POST /moments" do
-    it "should create and return a moment" do
-      post "lapses/#{moment.lapse.id}/moments", {
-        active: true
-      }.to_json, { 'Content-Type' => 'application/json' }
-      moment = Moment.last
-      expect(response.code.to_i).to eq 201
-      expect(json_response).to eq({
-        "moment" => {
-          "id"      => moment.id,
-          "active"  => moment.active
-        }
-      })
+    context "with valid parameters" do
+      it "should create a moment" do
+        expect{
+          post "lapses/#{moment.lapse.id}/moments", {
+            active: true
+          }.to_json, { 'Content-Type' => 'application/json' }
+        }.to change{Moment.count}.to Moment.count+1
+      end
+      it "returns a moment" do
+        post "lapses/#{moment.lapse.id}/moments", {
+          active: true
+        }.to_json, { 'Content-Type' => 'application/json' }
+        moment = Moment.last
+        expect(json_response).to eq({
+          "moment" => {
+            "id"      => moment.id,
+            "active"  => moment.active
+          }
+        })
+      end
+      it "returns a 201 status code" do
+        post "lapses/#{moment.lapse.id}/moments", {
+          active: true
+        }.to_json, { 'Content-Type' => 'application/json' }
+        expect(response.code.to_i).to eq 201
+      end
     end
 
-    it "should return an error message when invalid" do
-      post "lapses/#{moment.lapse.id}/moments", {
-        active: ''
-      }.to_json, { 'Content-Type' => 'application/json' }
-      expect(response.code.to_i).to eq 422
-      expect(json_response).to eq({
-        "error" => ["Active can't be blank"]
-      })
+    context "with invalid parameters" do
+      it "returns an error" do
+        post "lapses/#{moment.lapse.id}/moments", {
+          active: ''
+        }.to_json, { 'Content-Type' => 'application/json' }
+        expect(json_response).to eq({
+          "error" => ["Active can't be blank"]
+        })
+      end
+      it "returns a 422 status code" do
+        post "lapses/#{moment.lapse.id}/moments", {
+          active: ''
+        }.to_json, { 'Content-Type' => 'application/json' }
+        expect(response.code.to_i).to eq 422
+      end
     end
   end
 
   describe "DELETE /moment/:id" do
-    it "should remove moment" do
-      delete moment_path(moment)
-      expect(response.code.to_i).to eq 200
+    context "with a valid id" do
+      it "should remove moment" do
+        expect{
+          delete moment_path(moment)
+        }.to change{Moment.count}.to Moment.count-1
+      end
+      it "returns a 200 status code" do
+        delete moment_path(moment)
+        expect(response.code.to_i).to eq 200
+      end
     end
-    it "should return a 404 error if id is not found" do
-      delete moment_path(-1)
-      expect(response.code.to_i).to eq 404
-      expect(json_response).to eq({
-        "error" => "The requested resource could not be found."
-      })
+    context "with an invalid id" do
+      it "returns an error" do
+        delete moment_path(-1)
+        expect(json_response).to eq({
+          "error" => "The requested resource could not be found."
+        })
+      end
+      it "returns a 404 status code" do
+        delete moment_path(-1)
+        expect(response.code.to_i).to eq 404
+      end
     end
   end
 end
