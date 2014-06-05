@@ -53,6 +53,7 @@ gem 'faker',                    '~> 1.3.0'
 gem 'honeybadger',              '~> 1.10'
 gem 'newrelic_rpm',             '~> 3.7'
 gem 'pg',                       '~> 0.17'
+gem 'yard'
 
 # # Workers
 # # Process long jobs asyncronously from the rails web process.
