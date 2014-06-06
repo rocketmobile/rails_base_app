@@ -30,6 +30,7 @@ gem 'select2-rails',            '~> 3.5.3'
 gem 'dalli',                    '~> 2.6.4'
 gem 'haml-rails',               '~> 0.5.2'
 gem 'rabl',                     '~> 0.9.3'
+gem 'redcarpet',                '~> 3.1.2'
 gem 'roadie',                   '~> 2.4.3'
 gem 's3_direct_upload',         '~> 0.1.6'                        # buffer uploading from slow-clients
 gem 'will_paginate-foundation', '~> 5.3.3'
@@ -53,7 +54,6 @@ gem 'faker',                    '~> 1.3.0'
 gem 'honeybadger',              '~> 1.10'
 gem 'newrelic_rpm',             '~> 3.7'
 gem 'pg',                       '~> 0.17'
-gem 'yard'
 
 # # Workers
 # # Process long jobs asyncronously from the rails web process.

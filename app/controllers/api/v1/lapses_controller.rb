@@ -13,8 +13,6 @@ class Api::V1::LapsesController < Api::BaseController
   # @param name [String] The name identifying the lapse
   # @param favorite [Boolean] Whether or not the lapse has been favorited
   # @return {Lapse}
-  # @example Create a new Lapse
-  #   Net::HTTP.post('lapses', {name: 'name'}.to_json)
   def create
     @lapse = Lapse.new(lapse_params)
     if @lapse.save

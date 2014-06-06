@@ -1,0 +1,7 @@
+- content_for :page_title do
+  API Reference
+
+.documentation
+  - @topics.each do |topic|
+    = render topic
+    %hr
