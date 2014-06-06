@@ -1,0 +1,16 @@
+:ruby
+  topics = [ 'lapses/lapse',
+             'lapses/create',
+             'lapses/show',
+             'lapses/update',
+             'lapses/destroy',
+             'lapses/index']
+
+:markdown
+  # Lapses
+
+  A quick description of what a lapse is and when/how it's used.
+
+- topics.each do |topic|
+  .topic{id: topic}
+    = render topic

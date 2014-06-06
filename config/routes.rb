@@ -11,7 +11,7 @@ RailsBaseApp::Application.routes.draw do
     end
   end
 
-  root              to: 'documentation#index'
+  root              to: 'api/v1/documentation#index'
   get   'timeout',  to: 'pages#timeout'
 
 

@@ -3,5 +3,6 @@
 
 .documentation
   - @topics.each do |topic|
-    = render topic
+    .topic{id: topic}
+      = render topic
     %hr

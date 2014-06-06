@@ -19,9 +19,12 @@
     = render 'layouts/navigation'
     #content-wrap
       = render 'layouts/messages'
-      .row#content
-        .small-12.columns
-          = yield
+      - if content_for?(:content)
+        = content_for(:content)
+      - else
+        .row#content
+          .small-12.columns
+            = yield
       = render 'layouts/footer'
     = javascript_include_tag 'application'
     = content_for :javascripts

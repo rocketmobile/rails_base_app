@@ -1,0 +1,39 @@
+.documentation
+  @extend .row
+
+.topic
+  @extend .columns
+  @extend .large-12
+
+.param-wrapper
+  @extend .row
+
+.param-title
+  @extend .columns
+  @extend .large-4
+
+  .title
+    @extend .right
+    font-weight: bold
+    &:after
+      content: ':'
+
+.param-meta
+  @extend .columns
+  @extend .large-8
+
+  .required,
+  .optional
+    font-weight: bold
+
+  .default
+    font-style: italic
+    &:before
+      content: ' | '
+
+.param-wrapper + p
+  @extend .columns
+  @extend .large-8
+  @extend .large-offset-4
+  padding-left: .65rem
+  margin-top: .5rem
