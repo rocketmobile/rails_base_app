@@ -1,2 +1,2 @@
-collection @moments
+collection @moments => :moments
 attributes :id, :active

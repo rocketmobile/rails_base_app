@@ -14,4 +14,13 @@ module ApplicationHelper
       raise 'Buffer is not a valid json object, or object being appended cannot be converted to json. It must start and end with curly brackets.'
     end
   end
+  def prepare_resource_errors(errors)
+    errors_array = []
+    errors.each_key do |error_key|
+      errors[error_key].each do |message|
+        errors_array << {error_key => message}
+      end
+    end
+    errors_array
+  end
 end

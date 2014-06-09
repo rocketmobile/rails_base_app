@@ -8,11 +8,13 @@ describe "API::V1" do
   describe "GET /lapses" do
     it "returns an array of all lapses" do
       get lapses_path
-      expect(json_response.first).to eq({
-        "lapse" => {
-          "id"    => lapse.id,
-          "name"  => lapse.name
-        }
+      expect(json_response).to eq({
+        "lapses" => [{
+          "lapse" => {
+            "id"    => lapse.id,
+            "name"  => lapse.name
+          }
+        }]
       })
     end
     it "returns a 200 status code" do
@@ -42,7 +44,7 @@ describe "API::V1" do
       it "returns an error" do
         get lapse_path(-1)
         expect(json_response).to eq({
-          "error" => "The requested resource could not be found."
+          "errors" => "The requested resource could not be found."
         })
       end
       it "returns a 404 status code" do
@@ -86,14 +88,17 @@ describe "API::V1" do
         post '/lapses', {
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
-        puts json_response
         expect(json_response).to eq({
-          "error" => {
-            "name"=> ["can't be blank"]
-          }
+          "lapse" => {
+            "id"=> nil,
+            "name"=>""
+          },
+          "errors" => [{
+            "name" => "can't be blank"
+          }]
         })
       end
-      it "returns a 422 status code" do
+      it "returns a 422 status code", :only, :allow_exceptions do
         post '/lapses', {
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
@@ -136,9 +141,13 @@ describe "API::V1" do
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
         expect(json_response).to eq({
-          "error" => {
-            "name"=> ["can't be blank"]
-          }
+          "lapse" => {
+            "id"=> 1,
+            "name"=>""
+          },
+          "errors" => [{
+            "name" => "can't be blank"
+          }]
         })
       end
       it "returns a 422 status code" do
@@ -166,7 +175,7 @@ describe "API::V1" do
       it "returns an error" do
         delete lapse_path(-1)
         expect(json_response).to eq({
-          "error" => "The requested resource could not be found."
+          "errors" => "The requested resource could not be found."
         })
       end
       it "returns a 404 status code" do

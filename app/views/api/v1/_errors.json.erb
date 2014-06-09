@@ -1,0 +1,2 @@
+<%- errors = { errors: prepare_resource_errors(resource.errors.messages) } %>
+<%= append_to_json_object_buffer(yield, errors) %>

@@ -16,8 +16,7 @@ class Api::V1::MomentsController <  Api::BaseController
     if @moment.save
       render :show, status: 201
     else
-      @resourceful_errors = @moment.errors.messages
-      render 'api/errors/resourceful_error', status: 422
+      render :show, status: 422
     end
   end
 

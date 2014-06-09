@@ -1,2 +1,5 @@
-<%- errors = { errors: [{attribute: "name", message: "Name can't be blank."}] } %>
-<%= append_to_json_object_buffer(yield, errors) %>
+<%- if current_resource.try(:errors).present? %>
+  <%= render 'api/v1/errors', resource: current_resource %>
+<%- else %>
+  <%= yield %>
+<% end %>

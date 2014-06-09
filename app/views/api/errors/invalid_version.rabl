@@ -1,2 +1,2 @@
 object false
-node(:error) { t(:invalid_version, scope: "api.errors") }
+node(:errors) { t(:invalid_version, scope: "api.errors") }

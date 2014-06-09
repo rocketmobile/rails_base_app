@@ -1,2 +1,2 @@
 object false
-node(:error) { t(:forbidden, scope: "api.errors") }
+node(:errors) { t(:forbidden, scope: "api.errors") }

@@ -1,15 +1,14 @@
 # @api public
 class Api::BaseController < ApplicationController
   protect_from_forgery with: :null_session
-
   respond_to :json
 
-  rescue_from Exception, with: :internal_error
-  rescue_from Timeout::Error, with: :timeout
-  rescue_from Rack::Timeout::Error, with: :timeout
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  helper_method :current_resource, :current_resource=
 
   protected
+    def current_resource=(resource)
+      @current_resource = resource
+    end
     # def bad_request
     #   return render "api/errors/bad_request", status: 400
     # end
@@ -44,5 +43,4 @@ class Api::BaseController < ApplicationController
       ActiveRecord::Base.connection.reset!
       return render "api/errors/timeout", status: 503
     end
-
 end

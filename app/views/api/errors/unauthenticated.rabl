@@ -1,2 +1,2 @@
 object false
-node(:error) { t(:unauthenticated, scope: "api.errors") }
+node(:errors) { t(:unauthenticated, scope: "api.errors") }

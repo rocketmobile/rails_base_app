@@ -1,2 +1,2 @@
 object false
-node(:error) { t(:not_found, scope: "api.errors") }
+node(:errors) { t(:not_found, scope: "api.errors") }

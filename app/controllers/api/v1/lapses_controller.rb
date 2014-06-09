@@ -18,8 +18,7 @@ class Api::V1::LapsesController < Api::BaseController
     if @lapse.save
       render :show, status: 201
     else
-      @resourceful_errors = @lapse.errors.messages
-      render 'api/errors/resourceful_error', status: 422
+      render :show, status: 422
     end
   end
 
@@ -27,8 +26,7 @@ class Api::V1::LapsesController < Api::BaseController
     if @lapse.update(lapse_params)
       render :show, status: 200
     else
-      @resourceful_errors = @lapse.errors.messages
-      render 'api/errors/resourceful_error', status: 422
+      render :show, status: 422
     end
   end
 

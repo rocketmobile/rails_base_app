@@ -1,2 +1,2 @@
 object false
-node(:error) { t(:throttled, scope: "api.errors") }
+node(:errors) { t(:throttled, scope: "api.errors") }
