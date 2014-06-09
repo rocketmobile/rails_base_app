@@ -1,3 +1,6 @@
+.side-navigation-bar
+  position: fixed
+
 .documentation
   @extend .row
 
@@ -15,7 +18,7 @@
     margin-bottom: 1rem
 
   h1
-    font-size: 22px
+    font-size: 24px
   h2
     font-size: 20px
   h3
@@ -90,6 +93,9 @@
     background-color: #a8a8a8
     color: #f3f3f3
     cursor: pointer
+
+    &.expanded
+      background-color: #444
 
     .endpoint-method
       @extend .columns

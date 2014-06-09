@@ -1,6 +1,6 @@
 - content_for :content do
   .row
-    .large-3.columns
+    .side-navigation-bar.large-3.columns
       %ul.side-nav
         - documentation_topics.each do | topic, subtopics |
           %li= link_to topic.flatten[1], "##{topic.flatten[0]}"

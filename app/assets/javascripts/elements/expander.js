@@ -4,10 +4,12 @@ function Expander($el) {
   self.$trigger         = $el;
 
   self.settings = {
-    target: $el.attr('href')
+    target: $el.attr('href'),
+    activeClass: 'expanded'
   };
-
+  puts(self.settings)
   $.extend(self.settings, Foundation.utils.data_options($el, 'expander'));
+  puts(self.settings)
 
   self.$target          = $(self.settings.target);
 
@@ -40,7 +42,7 @@ Expander.prototype = {
     expand : function() {
       var self = this;
       self.$target.slideDown('fast', function(){
-        self.$trigger.removeClass(self.settings.activeClass);
+        self.$trigger.addClass(self.settings.activeClass);
       });
     },
 
@@ -48,7 +50,7 @@ Expander.prototype = {
       var self = this;
 
       self.$target.slideUp('slow', function(){
-        self.$trigger.addClass(self.settings.activeClass);
+        self.$trigger.removeClass(self.settings.activeClass);
       });
     },
     isExpanded : function() {
