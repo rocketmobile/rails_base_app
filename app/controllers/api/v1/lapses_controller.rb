@@ -9,6 +9,10 @@ class Api::V1::LapsesController < Api::BaseController
     render :show, status: 200
   end
 
+  # Creates a new lapse for the current user
+  # @param name [String] The name identifying the lapse
+  # @param favorite [Boolean] Whether or not the lapse has been favorited
+  # @return {Lapse}
   def create
     @lapse = Lapse.new(lapse_params)
     if @lapse.save

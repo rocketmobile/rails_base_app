@@ -1,0 +1,13 @@
+.param-wrapper
+  .param-title
+    %span.title= name
+
+  .param-meta
+    - if required
+      %span.required required
+    - else
+      %span.optional optional
+
+    - if default.to_s.present?
+      %span.default
+        default is #{default}

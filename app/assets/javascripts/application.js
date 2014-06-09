@@ -21,6 +21,7 @@
 //= require puts
 //= require foundation/foundation
 //= require foundation/foundation.alert
+//= require foundation/foundation.magellan
 //
 // Include all elements from /elements directory
 //

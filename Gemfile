@@ -14,7 +14,7 @@ gem 'rack-timeout',             github: 'kch/rack-timeout',
 # views: asset generation, javascripts, stylesheets
 gem 'asset_sync',               '~> 1.0.0'
 gem 'aws-sdk',                  '~> 1.30.0'
-gem 'foundation-rails',         '~> 5.2.1'
+gem 'foundation-rails',         '~> 5.2.3'
 gem 'jquery-fileupload-rails',  '~> 0.4.1'
 gem 'jquery-rails',             '~> 3.0.4'
 gem 'jquery-ui-sass-rails',     '~> 4.0.3.0'
@@ -30,6 +30,7 @@ gem 'select2-rails',            '~> 3.5.3'
 gem 'dalli',                    '~> 2.6.4'
 gem 'haml-rails',               '~> 0.5.2'
 gem 'rabl',                     '~> 0.9.3'
+gem 'redcarpet',                '~> 3.1.2'
 gem 'roadie',                   '~> 2.4.3'
 gem 's3_direct_upload',         '~> 0.1.6'                        # buffer uploading from slow-clients
 gem 'will_paginate-foundation', '~> 5.3.3'

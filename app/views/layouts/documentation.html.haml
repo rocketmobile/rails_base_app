@@ -1,0 +1,16 @@
+- content_for :content do
+  .row
+    .large-3.columns
+      %ul.side-nav
+        - documentation_topics.each do | topic, subtopics |
+          %li= link_to topic.flatten[1], "##{topic.flatten[0]}"
+          - if subtopics.present?
+            - subtopics.each do | subtopic |
+              %li.level-2= link_to subtopic.flatten[1], "##{subtopic.flatten[0]}"
+          %li.divider
+
+    .large-9.columns
+      .doc-content
+        = yield
+
+= render template: 'layouts/application'

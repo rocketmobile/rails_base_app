@@ -1,6 +1,13 @@
+# @api public
 class Api::BaseController < ApplicationController
   protect_from_forgery with: :null_session
-  layout false
+
+  respond_to :json
+
+  rescue_from Exception, with: :internal_error
+  rescue_from Timeout::Error, with: :timeout
+  rescue_from Rack::Timeout::Error, with: :timeout
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   protected
     # def bad_request

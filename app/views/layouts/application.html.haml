@@ -2,7 +2,10 @@
 %html
   %head
     %meta{charset: "utf-8"}
-    %title= Rails.application.class.parent_name.titleize
+    %title
+      - if content_for?(:page_title)
+        = "#{content_for(:page_title)} | "
+      = Rails.application.class.parent_name.titleize
     %meta{name: "HandheldFriendly", content: "True"}
     %meta{name: "MobileOptimized", content: "320"}
     %meta{name: "viewport", content: "width=device-width, target-densitydpi=160dpi, initial-scale=1.0"}
@@ -16,9 +19,12 @@
     = render 'layouts/navigation'
     #content-wrap
       = render 'layouts/messages'
-      .row#content
-        .small-12.columns
-          = yield
+      - if content_for?(:content)
+        = content_for(:content)
+      - else
+        .row#content
+          .small-12.columns
+            = yield
       = render 'layouts/footer'
     = javascript_include_tag 'application'
     = content_for :javascripts
