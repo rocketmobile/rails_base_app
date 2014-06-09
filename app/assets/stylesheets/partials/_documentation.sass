@@ -1,9 +1,45 @@
 .documentation
   @extend .row
 
+  padding: 30px
+  font-size: 15px
+  background-color: #f1f1f1
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    font-weight: bold
+    margin-bottom: 1rem
+
+  h1
+    font-size: 22px
+  h2
+    font-size: 20px
+  h3
+    font-size: 18px
+  h4
+    font-size: 16px
+  h5,
+  h6
+    font-size: 15px
+
+  h4
+    border-bottom: 1px solid #ddd
+
+  p
+    font-size: 15px
+
 .topic
   @extend .columns
   @extend .large-12
+  padding-bottom: 30px
+
+.topic .topic
+  padding-left: 0px
+  padding-right: 0px
 
 .param-wrapper,
 .attr-wrapper
@@ -45,12 +81,12 @@
   margin-top: .5rem
 
 .endpoint-wrapper
-  @extend .row
+  margin-bottom: 20px
 
   .summary
     +clearfix
     padding: 20px
-    font-size: 1.5rem
+    font-size: 1.2rem
     background-color: #a8a8a8
     color: #f3f3f3
     cursor: pointer

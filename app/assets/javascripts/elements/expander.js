@@ -10,7 +10,6 @@ function Expander($el) {
   $.extend(self.settings, Foundation.utils.data_options($el, 'expander'));
 
   self.$target          = $(self.settings.target);
-  puts(self.$target);
 
   self.init();
 }

@@ -1,12 +1,12 @@
 :markdown
-  ## Retrieving A Lapse
+  ## Retrieving a Lapse
 
-  Comments about creating a lapse
+  Retrieves the lapse with the given ID.
 
-  ### Arguments
+  #{endpoint_summary(:get, lapse_path(":lapse_id"), arguments: [:id])}
 
-  ### Response
+  #### Arguments
 
-  ### Example
+  #{param_title('id', required: true)}
 
-  ### Sample
+  The identifier of the lapse to be deleted. Must be passed as an argument in the URL.

@@ -3,7 +3,7 @@ function EndpointExample($el) {
 
   self.$el                 = $el;
   self.$form               = $el.find('form');
-  self.$response           = $el.find('.response');
+  self.$code           = $el.find('.response code');
 
   self.init();
 }
@@ -32,14 +32,23 @@ EndpointExample.prototype = {
 
     displayResults : function() {
       var self = this;
+      var jsonString = null;
 
-      self.$response.text(self.responseText);
+      try {
+        jsonString = JSON.stringify(JSON.parse(self.responseText), null, 2);
+      }
+      catch(err) {
+        jsonString = self.responseText;
+      }
+
+      self.$code.text(jsonString);
+      Prism.highlightAll();
     },
 
     clearResults : function(){
       var self = this;
 
-      self.$response.text('');
+      self.$code.text('');
     }
 }
 

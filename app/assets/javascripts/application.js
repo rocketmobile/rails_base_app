@@ -19,9 +19,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require puts
+//= require prism.min
 //= require foundation/foundation
 //= require foundation/foundation.alert
-//= require foundation/foundation.magellan
 //
 // Include all elements from /elements directory
 //
