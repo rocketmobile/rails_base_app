@@ -1,14 +1,12 @@
 :markdown
   ## Creating a Lapse
 
-  Comments about creating a lapse
+  Creates a new lapse for the user.
+
+  #{endpoint_summary(:post, lapses_path, arguments: [:name])}
 
   ### Arguments
-  #### name
 
+  #{param_title('name', required: true)}
 
-  ### Response
-
-  ### Example
-
-  ### Sample
+  The name by which the user will identify the lapse.

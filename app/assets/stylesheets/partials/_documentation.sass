@@ -5,10 +5,12 @@
   @extend .columns
   @extend .large-12
 
-.param-wrapper
+.param-wrapper,
+.attr-wrapper
   @extend .row
 
-.param-title
+.param-title,
+.attr-title
   @extend .columns
   @extend .large-4
 
@@ -18,22 +20,80 @@
     &:after
       content: ':'
 
-.param-meta
+.param-meta,
+.attr-meta
   @extend .columns
   @extend .large-8
 
   .required,
-  .optional
+  .optional,
+  .type
     font-weight: bold
 
-  .default
+  .default,
+  .value
     font-style: italic
     &:before
       content: ' | '
 
-.param-wrapper + p
+.param-wrapper + p,
+.attr-wrapper + p
   @extend .columns
   @extend .large-8
   @extend .large-offset-4
   padding-left: .65rem
   margin-top: .5rem
+
+.endpoint-wrapper
+  @extend .row
+
+  .summary
+    +clearfix
+    padding: 20px
+    font-size: 1.5rem
+    background-color: #a8a8a8
+    color: #f3f3f3
+    cursor: pointer
+
+    .endpoint-method
+      @extend .columns
+      @extend .large-4
+
+      text-align: center
+      text-transform: uppercase
+      font-weight: bold
+
+    .endpoint-path
+      @extend .columns
+      @extend .large-8
+
+  .example
+    +clearfix
+    padding: 10px
+    background-color: #d3d3d3
+    display: none
+
+    .field
+      @extend .row
+
+      .input-label
+        @extend .columns
+        @extend .large-4
+
+        label
+          @extend .right
+          font-size: 16px
+          margin-top: 6px
+
+      .input
+        @extend .columns
+        @extend .large-8
+
+    .actions
+      @extend .right
+      .button
+        text-transform: uppercase
+
+    .response
+      @extend .columns
+      @extend .large-12

@@ -1,0 +1,11 @@
+.attr-wrapper
+  .attr-title
+    %span.title= name
+
+  .attr-meta
+    - if type
+      %span.type= type
+
+    - if value.to_s.present?
+      %span.default
+        value is #{value}
