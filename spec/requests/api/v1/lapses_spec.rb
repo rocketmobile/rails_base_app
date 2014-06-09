@@ -8,13 +8,12 @@ describe "API::V1" do
   describe "GET /lapses" do
     it "returns an array of all lapses" do
       get lapses_path
-      expect(response.code.to_i).to eq 200
-      expect(json_response).to eq([{
+      expect(json_response.first).to eq({
         "lapse" => {
           "id"    => lapse.id,
           "name"  => lapse.name
         }
-      }])
+      })
     end
     it "returns a 200 status code" do
       get lapses_path
@@ -87,8 +86,11 @@ describe "API::V1" do
         post '/lapses', {
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
+        puts json_response
         expect(json_response).to eq({
-          "error" => ["Name can't be blank"]
+          "error" => {
+            "name"=> ["can't be blank"]
+          }
         })
       end
       it "returns a 422 status code" do
@@ -101,7 +103,7 @@ describe "API::V1" do
   end
 
   describe "PATCH /lapse/:id" do
-    context "with a valid id" do
+    context "with valid parameters" do
       it "updates the lapse asscoiated with the id" do
         expect{
           patch "/lapses/#{lapse.id}", {
@@ -128,13 +130,15 @@ describe "API::V1" do
       end
     end
 
-    context "with an invalid id" do
+    context "with invalid parameters" do
       it "returns an error" do
         patch "/lapses/#{lapse.id}", {
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
         expect(json_response).to eq({
-          "error" => ["Name can't be blank"]
+          "error" => {
+            "name"=> ["can't be blank"]
+          }
         })
       end
       it "returns a 422 status code" do

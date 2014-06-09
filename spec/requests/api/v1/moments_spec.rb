@@ -8,12 +8,12 @@ describe "API::V1::Moments" do
   describe "GET /moments" do
     it "returns an array of all moments" do
       get lapse_moments_path(moment.lapse)
-      expect(json_response).to eq([{
+      expect(json_response.first).to eq({
         "moment" => {
           "id"      => moment.id,
           "active"  => moment.active
         }
-      }])
+      })
     end
     it "returns a 200 status code" do
       get lapse_moments_path(moment.lapse)
@@ -87,7 +87,9 @@ describe "API::V1::Moments" do
           active: ''
         }.to_json, { 'Content-Type' => 'application/json' }
         expect(json_response).to eq({
-          "error" => ["Active can't be blank"]
+          "error" => {
+            "active"=> ["can't be blank"]
+          }
         })
       end
       it "returns a 422 status code" do

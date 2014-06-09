@@ -14,16 +14,16 @@ class Api::V1::LapsesController < Api::BaseController
     if @lapse.save
       render :show, status: 201
     else
-      @resourceful_errors = @lapse.errors.full_messages
+      @resourceful_errors = @lapse.errors.messages
       render 'api/errors/resourceful_error', status: 422
     end
   end
 
   def update
     if @lapse.update(lapse_params)
-      render 'api/v1/lapses/show', status: 200
+      render :show, status: 200
     else
-      @resourceful_errors = @lapse.errors.full_messages
+      @resourceful_errors = @lapse.errors.messages
       render 'api/errors/resourceful_error', status: 422
     end
   end
