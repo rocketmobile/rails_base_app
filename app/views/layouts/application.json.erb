@@ -1,0 +1,2 @@
+<%- errors = { errors: [{attribute: "name", message: "Name can't be blank."}] } %>
+<%= append_to_json_object_buffer(yield, errors) %>
