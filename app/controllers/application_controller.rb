@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include ResourcefulMessages
-  protect_from_forgery
+  protect_from_forgery with: :exception
 
   if Rails.application.config.consider_all_requests_local == false
     # note: these are rescued from bottom (most specific) to top (least)
@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
     def redirect_to_back(opts={})
       response_status_and_flash = opts.except(:or)
       url = :back if request.referrer.present?

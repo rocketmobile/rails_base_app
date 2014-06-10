@@ -1,0 +1,1 @@
+json.errors t(:throttled, scope: "api.errors")

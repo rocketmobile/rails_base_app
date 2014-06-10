@@ -1,0 +1,20 @@
+:ruby
+  topics = [ 'lapses/lapse',
+             'lapses/create',
+             'lapses/show',
+             'lapses/update',
+             'lapses/destroy',
+             'lapses/index']
+
+:markdown
+  # Lapses
+
+  Lapses are the primary resource for a user.
+  A user has many lapses. A lapse has many moments associated with it.
+  Lapses are identified by their names.
+
+
+- topics.each do |topic|
+  .topic{id: topic}
+    = render topic
+  %hr

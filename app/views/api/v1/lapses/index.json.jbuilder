@@ -1,0 +1,1 @@
+json.lapses @lapses, :id, :name

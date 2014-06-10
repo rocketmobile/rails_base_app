@@ -1,0 +1,1 @@
+json.errors t(:conflict, scope: "api.errors")

@@ -1,0 +1,1 @@
+json.errors t(:invalid_version, scope: "api.errors")

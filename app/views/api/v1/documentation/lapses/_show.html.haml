@@ -1,0 +1,16 @@
+:markdown
+  ## Retrieving a Lapse
+
+  Retrieves the lapse with the given ID.
+
+  #{endpoint_summary(:get, lapse_path(":lapse_id"), arguments:
+    [
+      {id: {url_param: ':lapse_id'}}
+    ])
+  }
+
+  #### Arguments
+
+  #{param_title('id', required: true)}
+
+  The identifier of the lapse to be deleted. Must be passed as an argument in the URL.

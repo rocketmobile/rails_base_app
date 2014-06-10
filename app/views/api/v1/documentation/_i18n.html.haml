@@ -1,0 +1,12 @@
+:markdown
+  # Internationalization
+
+  API responses will include [localized](http://en.wikipedia.org/wiki/Language_localisation) values when applicable. A good example of a localized response value is an error's `message` value.
+
+  The locale chosen is indicated by the `Accept-Language` [HTTP Header](http://en.wikipedia.org/wiki/List_of_HTTP_header_fields). The values expected for this header will conform to the [HTTP spec](http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.10).
+
+  If the specified locale is not available, and compatible language will be chosen if available (e.g. zh-TW would fall back to zh-CN). If no compatible language can be found, the master langague will be chosen. Currently supported values are:
+
+  * en-US (master language)
+
+
