@@ -107,7 +107,7 @@ describe "API::V1" do
   end
 
   describe "PATCH /lapse/:id" do
-    context "with valid parameters" do
+    context "with valid parameters and id" do
       it "updates the lapse asscoiated with the id" do
         expect{
           patch "/lapses/#{lapse.id}", {
@@ -155,6 +155,22 @@ describe "API::V1" do
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
         expect(response.code.to_i).to eq 422
+      end
+    end
+    context "with invalid id" do
+      it "returns an error" do
+        patch "/lapses/-1", {
+          name: 'My Lapse'
+        }.to_json, { 'Content-Type' => 'application/json' }
+        expect(json_response).to eq({
+          "errors" => "The requested resource could not be found."
+        })
+      end
+      it "returns a 422 status code" do
+        patch "/lapses/-1", {
+          name: 'My Lapse'
+        }.to_json, { 'Content-Type' => 'application/json' }
+        expect(response.code.to_i).to eq 404
       end
     end
   end
