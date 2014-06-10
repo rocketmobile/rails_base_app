@@ -1,5 +1,0 @@
-<%- if current_resource.try(:errors).present? %>
-  <%= render 'api/v1/errors', resource: current_resource %>
-<%- else %>
-  <%= yield %>
-<% end %>

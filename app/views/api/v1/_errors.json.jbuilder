@@ -1,0 +1,1 @@
+json.errors prepare_resource_errors(resource.errors.messages)
