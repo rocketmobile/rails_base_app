@@ -8,12 +8,7 @@ describe "API::V1" do
   describe "GET /lapses" do
     it "returns an array of all lapses" do
       get lapses_path
-      expect(json_response).to eq({
-        "lapses" => [{
-          "id"    => lapse.id,
-          "name"  => lapse.name
-        }]
-      })
+      expect(json_response['lapses'].map{|l| l['id']}).to include(lapse.id)
     end
     it "returns a 200 status code" do
       get lapses_path
@@ -88,7 +83,7 @@ describe "API::V1" do
         }.to_json, { 'Content-Type' => 'application/json' }
         expect(json_response).to eq({
           "errors" => [{
-            "parameter" => "Name",
+            "parameter" => "name",
             "message"   => "Name can't be blank"
           }],
           "lapse" => {
@@ -145,7 +140,7 @@ describe "API::V1" do
             "name"=>""
           },
           "errors" => [{
-            "parameter" => "Name",
+            "parameter" => "name",
             "message"   => "Name can't be blank"
           }]
         })

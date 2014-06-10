@@ -88,7 +88,7 @@ describe "API::V1::Moments" do
         }.to_json, { 'Content-Type' => 'application/json' }
         expect(json_response).to eq({
           "errors" => [{
-            "parameter" => "Active",
+            "parameter" => "active",
             "message"   => "Active can't be blank"
           }],
           "moment" => {
