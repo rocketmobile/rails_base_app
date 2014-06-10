@@ -21,18 +21,33 @@ EndpointExample.prototype = {
 
       self.$el.on('ajax:success', function(e, data, status, xhr){
         self.responseText = xhr.responseText;
+        self.statusCode = xhr.status;
+        self.statusText = xhr.statusText;
+
         self.displayResults();
       });
 
       self.$el.on('ajax:error', function(e, xhr, status, error){
         self.responseText = xhr.responseText;
+        self.statusCode = xhr.status;
+        self.statusText = xhr.statusText;
+
         self.displayResults();
       });
     },
 
     displayResults : function() {
       var self = this;
+
+      self.$code.text(self.formattedResults());
+      Prism.highlightAll();
+    },
+
+    formattedResults : function() {
+      var self = this;
+      var formattedString = null;
       var jsonString = null;
+      var statusString = 'HTTP ' + self.statusCode + ' (' + self.statusText + ')';
 
       try {
         jsonString = JSON.stringify(JSON.parse(self.responseText), null, 2);
@@ -41,8 +56,9 @@ EndpointExample.prototype = {
         jsonString = self.responseText;
       }
 
-      self.$code.text(jsonString);
-      Prism.highlightAll();
+      formattedString = statusString + '\n\n' + jsonString;
+
+      return formattedString;
     },
 
     clearResults : function(){
