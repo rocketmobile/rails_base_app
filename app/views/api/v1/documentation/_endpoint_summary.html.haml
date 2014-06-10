@@ -13,8 +13,13 @@
       - if arguments.present?
         - Array(arguments).each do |arg|
           .field
-            .input-label= label_tag arg, arg
-            .input= text_field_tag arg
+            - if Hash === arg
+              - arg, opts = arg.flatten
+              .input-label= label_tag 'see-endpoint-js', arg
+              .input= text_field_tag 'see-endpoint-js', nil, data: opts
+            - else
+              .input-label= label_tag arg, arg
+              .input= text_field_tag arg
       - else
         /TODO: the ability to add an arbitrary text area field
       .actions

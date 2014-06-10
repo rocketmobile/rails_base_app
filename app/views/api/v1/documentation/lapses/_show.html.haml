@@ -3,7 +3,11 @@
 
   Retrieves the lapse with the given ID.
 
-  #{endpoint_summary(:get, lapse_path(":lapse_id"), arguments: [:id])}
+  #{endpoint_summary(:get, lapse_path(":lapse_id"), arguments:
+    [
+      {id: {url_param: ':lapse_id'}}
+    ])
+  }
 
   #### Arguments
 

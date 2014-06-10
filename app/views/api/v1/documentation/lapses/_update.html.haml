@@ -3,7 +3,12 @@
 
   Updates an existing lapse.
 
-  #{endpoint_summary(:patch, lapse_path(':lapse_id'), arguments: [:id, :name])}
+  #{endpoint_summary(:patch, lapse_path(':lapse_id'), arguments:
+    [
+      {id: {url_param: ':lapse_id'}},
+      :name
+    ])
+  }
 
   #### Arguments
 

@@ -3,7 +3,11 @@
 
   Destroys an existing lapse belonging to the user. This permanently removes the resource and all associated moments.
 
-  #{endpoint_summary(:delete, lapse_path(":lapse_id"), arguments: [:id])}
+  #{endpoint_summary(:delete, lapse_path(":lapse_id"), arguments:
+    [
+      {id: {url_param: ':lapse_id'}}
+    ])
+  }
 
   #### Arguments
 

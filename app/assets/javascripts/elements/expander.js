@@ -7,9 +7,7 @@ function Expander($el) {
     target: $el.attr('href'),
     activeClass: 'expanded'
   };
-  puts(self.settings)
   $.extend(self.settings, Foundation.utils.data_options($el, 'expander'));
-  puts(self.settings)
 
   self.$target          = $(self.settings.target);
 
