@@ -94,7 +94,8 @@ describe "API::V1::Moments" do
             "active" => nil
           },
           "errors" => [{
-            "active" => "can't be blank"
+            "attribute" => "active",
+            "message"   => "can't be blank"
           }]
         })
       end

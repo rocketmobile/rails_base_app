@@ -18,7 +18,10 @@ module ApplicationHelper
     errors_array = []
     errors.each_key do |error_key|
       errors[error_key].each do |message|
-        errors_array << {error_key => message}
+        errors_array << {
+          'attribute' => error_key,
+          'message'   => message
+        }
       end
     end
     errors_array

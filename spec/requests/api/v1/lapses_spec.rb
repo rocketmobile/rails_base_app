@@ -94,11 +94,12 @@ describe "API::V1" do
             "name"=>""
           },
           "errors" => [{
-            "name" => "can't be blank"
+            "attribute" => "name",
+            "message"   => "can't be blank"
           }]
         })
       end
-      it "returns a 422 status code", :only, :allow_exceptions do
+      it "returns a 422 status code" do
         post '/lapses', {
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
@@ -146,7 +147,8 @@ describe "API::V1" do
             "name"=>""
           },
           "errors" => [{
-            "name" => "can't be blank"
+            "attribute" => "name",
+            "message"   => "can't be blank"
           }]
         })
       end
