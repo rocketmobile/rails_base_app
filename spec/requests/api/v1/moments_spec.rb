@@ -97,11 +97,11 @@ describe "API::V1::Moments" do
           }]
         })
       end
-      it "returns a 422 status code" do
+      it "returns a 400 status code" do
         post "lapses/#{moment.lapse.id}/moments", {
           active: ''
         }.to_json, { 'Content-Type' => 'application/json' }
-        expect(response.code.to_i).to eq 422
+        expect(response.code.to_i).to eq 400
       end
     end
   end

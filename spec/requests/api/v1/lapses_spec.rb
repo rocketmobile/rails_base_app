@@ -97,11 +97,11 @@ describe "API::V1" do
           }]
         })
       end
-      it "returns a 422 status code" do
+      it "returns a 400 status code" do
         post '/lapses', {
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
-        expect(response.code.to_i).to eq 422
+        expect(response.code.to_i).to eq 400
       end
     end
   end
@@ -150,11 +150,11 @@ describe "API::V1" do
           }]
         })
       end
-      it "returns a 422 status code" do
+      it "returns a 400 status code" do
         patch "/lapses/#{lapse.id}", {
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
-        expect(response.code.to_i).to eq 422
+        expect(response.code.to_i).to eq 400
       end
     end
     context "with invalid id" do
@@ -166,7 +166,7 @@ describe "API::V1" do
           "errors" => "The requested resource could not be found."
         })
       end
-      it "returns a 422 status code" do
+      it "returns a 400 status code" do
         patch "/lapses/-1", {
           name: 'My Lapse'
         }.to_json, { 'Content-Type' => 'application/json' }
