@@ -10,10 +10,8 @@ describe "API::V1" do
       get lapses_path
       expect(json_response).to eq({
         "lapses" => [{
-          "lapse" => {
-            "id"    => lapse.id,
-            "name"  => lapse.name
-          }
+          "id"    => lapse.id,
+          "name"  => lapse.name
         }]
       })
     end

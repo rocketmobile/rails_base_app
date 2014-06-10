@@ -29,7 +29,7 @@ gem 'select2-rails',            '~> 3.5.3'
 # views: cacheing, templateing, html generation
 gem 'dalli',                    '~> 2.6.4'
 gem 'haml-rails',               '~> 0.5.2'
-gem 'rabl',                     '~> 0.9.3'
+gem 'jbuilder',                 '~> 2.1.0'
 gem 'redcarpet',                '~> 3.1.2'
 gem 'roadie',                   '~> 2.4.3'
 gem 's3_direct_upload',         '~> 0.1.6'                        # buffer uploading from slow-clients

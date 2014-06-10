@@ -10,10 +10,8 @@ describe "API::V1::Moments" do
       get lapse_moments_path(moment.lapse)
       expect(json_response).to eq({
         "moments" => [{
-          "moment" => {
-            "id"      => moment.id,
-            "active"  => moment.active
-          }
+          "id"      => moment.id,
+          "active"  => moment.active
         }]
       })
     end

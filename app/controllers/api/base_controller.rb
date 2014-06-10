@@ -2,7 +2,6 @@
 class Api::BaseController < ApplicationController
   protect_from_forgery with: :null_session
   respond_to :json
-
   helper_method :current_resource, :current_resource=
 
   protected

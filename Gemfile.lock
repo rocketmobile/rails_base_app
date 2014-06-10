@@ -199,6 +199,9 @@ GEM
       ruby_parser (~> 3.1.1)
     http_parser.rb (0.6.0)
     i18n (0.6.9)
+    jbuilder (2.1.0)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
     jquery-fileupload-rails (0.4.1)
       actionpack (>= 3.1)
       railties (>= 3.1)
@@ -271,8 +274,6 @@ GEM
       websocket (~> 1.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
-    rabl (0.9.3)
-      activesupport (>= 2.3.14)
     rack (1.5.2)
     rack-livereload (0.3.15)
       rack
@@ -446,6 +447,7 @@ DEPENDENCIES
   hashie (~> 2.0.5)
   honeybadger (~> 1.10)
   html2haml
+  jbuilder (~> 2.1.0)
   jquery-fileupload-rails (~> 0.4.1)
   jquery-rails (~> 3.0.4)
   jquery-ui-sass-rails (~> 4.0.3.0)
@@ -458,7 +460,6 @@ DEPENDENCIES
   pry-nav
   pry-rails
   quiet_assets
-  rabl (~> 0.9.3)
   rack-livereload
   rack-rewrite (~> 1.4)
   rack-timeout!

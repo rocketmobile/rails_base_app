@@ -1,0 +1,1 @@
+json.errors t(:invalid_resource, scope: "api.errors")

@@ -1,0 +1,1 @@
+json.errors t(:unauthenticated, scope: "api.errors")

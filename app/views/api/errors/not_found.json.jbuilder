@@ -1,0 +1,1 @@
+json.errors t(:not_found, scope: "api.errors")
