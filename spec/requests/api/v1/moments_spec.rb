@@ -87,14 +87,14 @@ describe "API::V1::Moments" do
           active: ''
         }.to_json, { 'Content-Type' => 'application/json' }
         expect(json_response).to eq({
+          "errors" => [{
+            "parameter" => "Active",
+            "message"   => "Active can't be blank"
+          }],
           "moment" => {
             "id"     => nil,
             "active" => nil
-          },
-          "errors" => [{
-            "attribute" => "active",
-            "message"   => "can't be blank"
-          }]
+          }
         })
       end
       it "returns a 400 status code" do

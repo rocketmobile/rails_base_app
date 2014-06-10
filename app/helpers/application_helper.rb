@@ -5,18 +5,4 @@ module ApplicationHelper
 
     link_to text, url, html_options
   end
-  def prepare_resource_errors(resource_errors)
-    errors_array = []
-
-    resource_errors.each_key do |error_key|
-      resource_errors[error_key].each do |message|
-        errors_array << {
-          'attribute' => error_key,
-          'message'   => message
-        }
-      end
-    end
-
-    errors_array
-  end
 end

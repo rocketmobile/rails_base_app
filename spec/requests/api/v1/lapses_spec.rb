@@ -87,14 +87,14 @@ describe "API::V1" do
           name: ''
         }.to_json, { 'Content-Type' => 'application/json' }
         expect(json_response).to eq({
+          "errors" => [{
+            "parameter" => "Name",
+            "message"   => "Name can't be blank"
+          }],
           "lapse" => {
             "id"=> nil,
             "name"=>""
-          },
-          "errors" => [{
-            "attribute" => "name",
-            "message"   => "can't be blank"
-          }]
+          }
         })
       end
       it "returns a 400 status code" do
@@ -145,8 +145,8 @@ describe "API::V1" do
             "name"=>""
           },
           "errors" => [{
-            "attribute" => "name",
-            "message"   => "can't be blank"
+            "parameter" => "Name",
+            "message"   => "Name can't be blank"
           }]
         })
       end
