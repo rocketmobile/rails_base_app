@@ -52,8 +52,7 @@ You can now run `heroku open` to visit [rails-base-app.herokuapp.com](http://rai
     * `heroku addons:open newrelic` to set up availability monitoring (Settings » Availability monitoring)
   * Host assets remotely using S3 and `asset_sync`
     * Add `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_BUCKET` config variables
-    * Make these variables available during precompile with `heroku labs:enable user-env-compile`
-    * Generate initial assets by executing `heroku run rake assets:precompile`
+    * Generate initial assets by executing `heroku run rake assets:precompile` or pushing a new commit to Heroku
   * Host assets with regional edge caches using CloudFront
     * Set up a CloudFront distribution with your S3 bucket as the origin
     * Add the `CDN_HOST` config variable with your distribution's domain name, without the protocol (ex: `d3fsl83hdxp1.cloudfront.net`)
