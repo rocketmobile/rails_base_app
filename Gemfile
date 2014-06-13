@@ -42,9 +42,9 @@ gem 'will_paginate',            '~> 3.0.5'
 
 # modeling
 gem 'delayed_paperclip',        '~> 2.6.1'                        # asyncronous image processing
-gem 'devise',                   '~> 4.1.1'
+gem 'devise',                   '~> 3.2.4'
 gem 'hashie',                   '~> 2.0.5'
-gem 'paperclip',                '~> 3.5.0'                        # easy object attachment with s3 storage
+gem 'paperclip',                '~> 4.1.1'                        # easy object attachment with s3 storage
 gem 'ruby-progressbar',         '~> 1.4.2'
 
 # operations
