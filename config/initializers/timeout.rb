@@ -8,6 +8,9 @@ Rack::Timeout.timeout = begin
 end
 
 # Rack::Timeout logs a line every time there's a change in state in a request's lifetime.
-# Changes into `timed_out` and `expired` are logged at the ERROR level, most other things are logged as INFO.
-# Exceptionally, `active state` is logged as DEBUG, every ~1s while the request is still active.
+#   * Changes into `timed_out` and `expired` are logged at the ERROR level
+#   * Most other events are logged as INFO
+#   * `active state` is logged as DEBUG, every ~1s while the request is still active
+#
+# Change the timeout logger level to debug
 # Rack::Timeout.logger.level = ::Logger::DEBUG
