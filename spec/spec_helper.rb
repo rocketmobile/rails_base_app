@@ -26,12 +26,17 @@ end
 # Capybara.javascript_driver = :webkit
 
 Capybara.javascript_driver = :slenium
-Capybara.default_wait_time = 2
+Capybara.default_max_wait_time = 2
 Capybara.server_port = 3121
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| load f}
 
 RSpec.configure do |c|
+
+  # automatically include the correct
+  # support functions for each type of spec
+  c.infer_spec_type_from_file_location!
+
   c.filter_run :only => true
   #when paired with an inclusion filter like ":focus => true", 'run_all_when_everything_filtered'
   #will run all examples when none match the inclusion filter
@@ -78,8 +83,13 @@ RSpec.configure do |c|
     ApplicationController.rescue_handlers = []
   end
 
-  # allow rspec 3.x style :only metadata declaration
-  c.treat_symbols_as_metadata_keys_with_true_values = true
+  # Allow rspec 2 and 3 style syntaxes
+  c.expect_with :rspec do |c|
+    c.syntax = [:should, :expect]
+  end
+  c.mock_with :rspec do |c|
+    c.syntax = [:should, :expect]
+  end
 end
 
 # Checks for pending migrations before tests are run.

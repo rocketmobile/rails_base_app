@@ -6,6 +6,10 @@ RailsBaseApp::Application.configure do
 
   config.eager_load = true
 
+  # allowing concurrency is inferred from cache_classes and eager_load
+  # both being enabled, explicitly setting it here for clarity
+  config.allow_concurrency = true
+
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = ENV['CONSIDER_REQUESTS_LOCAL'] == "true"
   config.action_controller.perform_caching = ENV['DISABLE_CACHING'] != "true"
@@ -45,6 +49,7 @@ RailsBaseApp::Application.configure do
   # set log level with config/env variables
   # production is set to :info by default
   config.log_level = ENV["LOG_LEVEL"].to_sym if ENV["LOG_LEVEL"].in?(%w(debug info warn error fatal))
+  config.log_level ||= :info
 
   # Prepend all log lines with the following tags
   # config.log_tags = [ :subdomain, :uuid ]
@@ -88,9 +93,6 @@ RailsBaseApp::Application.configure do
 
   config.action_mailer.default_url_options = { :host => ENV["EMAIL_HOST"] || "www.example.com" }
   config.action_mailer.asset_host = config.action_controller.asset_host
-
-  # Enable threaded mode
-  # config.threadsafe!
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)

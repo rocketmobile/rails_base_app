@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 ruby '2.0.0'
-gem 'rails',                    '~> 4.1.1'
+gem 'rails',                    '~> 4.2.4'
 
 # web server
-gem 'thin',                     '~> 1.6.1'
+gem 'puma',                     '~> 2.14.0'
 
 # middleware
 gem 'rack-rewrite',             '~> 1.4'
@@ -48,8 +48,6 @@ gem 'paperclip',                '~> 4.1.1'                        # easy object 
 gem 'ruby-progressbar',         '~> 1.4.2'
 
 # operations
-gem 'factory_girl_rails',       '~> 4.3.0'
-gem 'faker',                    '~> 1.3.0'
 gem 'honeybadger',              '~> 1.10'
 gem 'newrelic_rpm',             '~> 3.7'
 gem 'pg',                       '~> 0.17'
@@ -81,20 +79,23 @@ group :development do
   gem 'travis'
 end
 
-gem 'binding_of_caller',  groups: [:development, :test]
 gem 'pry-rails',          groups: [:development, :test]
-gem 'pry-nav',            groups: [:development, :test]
+gem 'byebug'
 
 group :development, :test do
   gem 'coveralls',              require: false
-  gem 'capybara',               '>= 2.1.0'
-  gem 'email_spec',             '>= 1.2.1'
-  gem 'fuubar'
-  gem 'guard-rspec',            '>= 0.4.3'
-  gem 'rspec-rails',            '>= 2.14.0'
+  gem 'capybara',               '~> 2.1'
+  gem 'db-query-matchers',      '~> 0.4.0'
+  gem 'email_spec',             '~> 1.2'
+  gem 'factory_girl_rails',     '~> 4.3'
+  gem 'faker',                  '~> 1.3.0'
+  gem 'fuubar',                 '~> 2.0'
+  gem 'guard-rspec',            '~> 4.2'
+  gem 'rspec-rails',            '~> 3.1'
+  gem 'temping',                '~> 3.2.0'
 
   # # If app has significant JS functionality,
   # # use capybara-webkit to test headlessly
-  # gem 'capybara-screenshot'
-  # gem 'capybara-webkit',      '~> 1.1.0'
+  # gem 'capybara-screenshot',    '~> 0.3'
+  # gem 'capybara-webkit',        '~> 1.1'
 end

@@ -8,6 +8,11 @@ RailsBaseApp::Application.configure do
 
   config.eager_load = false
 
+  # explicitly allow concurrency to see potential threading issues
+  # in production mode this is inferred from cache_classes and eager_load
+  # both being enabled
+  # config.allow_concurrency = true
+
   # Show full error reports and disable or enable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
